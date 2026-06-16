@@ -256,10 +256,11 @@ function demoData(periodo, instalacao) {
 async function fetchData() {
   const url = getWebhook();
   try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ periodo: estado.periodo, instalacao: estado.instalacao })
+    const params = new URLSearchParams({ periodo: estado.periodo, instalacao: estado.instalacao });
+    const res = await fetch(url + '?' + params, {
+      
+      
+      
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     return await res.json();
