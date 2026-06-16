@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Painel — Mini Mercado</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+  :root {
+    --bg:#0f1117;--bg2:#181c26;--bg3:#1e2333;--border:rgba(255,255,255,.07);
+    --text:#e8eaf0;--muted:#7a7f94;--accent:#f5a623;--green:#2ecc71;
+    --red:#e74c3c;--blue:#4a9eff;--purple:#9b59b6;--radius:12px;
+    --font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;min-height:100vh}
+
+  /* HEADER */
+  header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 20px;height:56px;
+    display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+  .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+  .status-bar{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+  .live-badge{background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);color:var(--green);
+    padding:3px 8px;border-radius:20px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:4px}
+  .live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
+
+  /* FILTER BAR */
+  .filter-bar{padding:12px 20px 0;display:flex;gap:6px;flex-wrap:wrap}
+  .filter-group{display:flex;gap:4px}
+  .filter-sep{width:1px;background:var(--border);margin:0 4px}
+  .pill{background:var(--bg3);border:1px solid var(--border);color:var(--muted);
+    padding:5px 14px;border-radius:20px;cursor:pointer;font-size:12px;font-family:var(--font);
+    white-space:nowrap;transition:all .2s}
+  .pill.active,.pill:hover{background:var(--accent);border-color:var(--accent);color:#000;font-weight:600}
+  .pill.inst-all.active{background:var(--blue);border-color:var(--blue);color:#fff}
+  .pill.inst-1.active{background:var(--purple);border-color:var(--purple);color:#fff}
+  .pill.inst-2.active{background:#e85d30;border-color:#e85d30;color:#fff}
+
+  /* MAIN */
+  main{padding:16px 20px 40px;max-width:1100px;margin:0 auto}
+
+  /* INSTALAÇÃO SPLIT */
+  .inst-split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+  @media(max-width:500px){.inst-split{grid-template-columns:1fr}}
+  .inst-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+    padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+  .inst-card.active-inst{border-color:var(--accent)}
+  .inst-name{font-size:12px;color:var(--muted);margin-bottom:4px}
+  .inst-val{font-family:var(--mono);font-size:18px;font-weight:600}
+  .inst-sub{font-size:11px;color:var(--muted);margin-top:2px}
+  .inst-icon{font-size:22px}
+
+  /* KPI */
+  .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+  .kpi{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;position:relative;overflow:hidden}
+  .kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--kpi-color,var(--accent))}
+  .kpi-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+  .kpi-value{font-family:var(--mono);font-size:22px;font-weight:600}
+  .kpi-delta{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;
+    margin-top:6px;padding:2px 7px;border-radius:10px}
+  .delta-up{background:rgba(46,204,113,.1);color:var(--green)}
+  .delta-down{background:rgba(231,76,60,.1);color:var(--red)}
+
+  /* SECTION */
+  .section-title{font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);
+    margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+  /* CARDS */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr}}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+  .card-title{font-size:13px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+  .card-badge{font-size:10px;background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:8px;color:var(--muted)}
+
+  /* BAR CHART */
+  .bar-chart{display:flex;flex-direction:column;gap:10px}
+  .bar-row{display:flex;align-items:center;gap:10px}
+  .bar-label{font-size:12px;color:var(--muted);width:120px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar-track{flex:1;background:var(--bg3);border-radius:4px;height:8px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:4px;transition:width 1s ease}
+  .bar-val{font-family:var(--mono);font-size:11px;width:65px;text-align:right;flex-shrink:0}
+
+  /* HORA CHART */
+  .hour-wrap{overflow-x:auto}
+  .hour-chart{display:flex;align-items:flex-end;gap:3px;height:80px;min-width:300px}
+  .hour-bar{flex:1;border-radius:4px 4px 0 0;min-height:3px;transition:height .8s ease;cursor:pointer;position:relative}
+  .hour-bar:hover::after{content:attr(data-tip);position:absolute;bottom:110%;left:50%;transform:translateX(-50%);
+    background:var(--bg);border:1px solid var(--border);color:var(--text);font-size:10px;
+    padding:3px 7px;border-radius:6px;white-space:nowrap;pointer-events:none;z-index:10}
+  .hour-labels{display:flex;gap:3px;margin-top:6px;min-width:300px}
+  .hour-lbl{flex:1;text-align:center;font-size:9px;color:var(--muted)}
+
+  /* MARGEM TABLE */
+  .margin-table{width:100%;border-collapse:collapse}
+  .margin-table th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);
+    text-align:left;padding:0 0 10px;border-bottom:1px solid var(--border)}
+  .margin-table th:last-child,.margin-table td:last-child{text-align:right}
+  .margin-table td{padding:9px 0;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
+  .margin-table tr:last-child td{border-bottom:none}
+  .mpill{display:inline-block;padding:2px 8px;border-radius:8px;font-size:11px;font-weight:600;font-family:var(--mono)}
+  .mh{background:rgba(46,204,113,.12);color:var(--green)}
+  .mm{background:rgba(245,166,35,.12);color:var(--accent)}
+  .ml{background:rgba(231,76,60,.12);color:var(--red)}
+  .rank{font-size:10px;color:var(--muted);font-family:var(--mono)}
+
+  /* CONFIG */
+  .config-panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px}
+  .config-panel h3{font-size:13px;font-weight:600;margin-bottom:14px}
+  .config-row{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .config-row label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+  .config-input{background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+    padding:8px 12px;color:var(--text);font-family:var(--mono);font-size:12px;width:100%}
+  .config-input:focus{outline:none;border-color:var(--accent)}
+  .btn-save{background:var(--accent);border:none;color:#000;font-weight:700;
+    padding:9px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-family:var(--font)}
+
+  /* SPINNER */
+  .spinner{display:flex;align-items:center;justify-content:center;padding:60px;
+    flex-direction:column;gap:16px;color:var(--muted);font-size:13px}
+  .spin{width:28px;height:28px;border:2px solid var(--border);border-top-color:var(--accent);
+    border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  footer{text-align:center;color:var(--muted);font-size:11px;padding:20px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><div class="logo-dot"></div>Painel Mini Mercado</div>
+  <div class="status-bar">
+    <span id="last-update">—</span>
+    <div class="live-badge"><div class="live-dot"></div>Ao vivo</div>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <!-- Período -->
+  <div class="filter-group">
+    <button class="pill active" onclick="setFiltro('periodo','hoje',this)">Hoje</button>
+    <button class="pill" onclick="setFiltro('periodo','semana',this)">7 dias</button>
+    <button class="pill" onclick="setFiltro('periodo','mes',this)">Mês</button>
+  </div>
+  <div class="filter-sep"></div>
+  <!-- Instalação -->
+  <div class="filter-group">
+    <button class="pill inst-all active" onclick="setFiltro('instalacao','todas',this)">Todas</button>
+    <button class="pill inst-1" onclick="setFiltro('instalacao','soul_brooklin',this)">Mercadinho 1</button>
+    <button class="pill inst-2" onclick="setFiltro('instalacao','minimart',this)">Mercadinho 2</button>
+  </div>
+  <div class="filter-sep"></div>
+  <button class="pill" onclick="toggleConfig(this)">⚙ Config</button>
+</div>
+
+<main>
+  <div id="config-panel" class="config-panel" style="display:none">
+    <h3>Configuração do Webhook n8n</h3>
+    <div class="config-row">
+      <label>URL do Webhook</label>
+      <input class="config-input" id="webhook-url" type="text"
+        placeholder="https://manda2702.app.n8n.cloud/webhook/minmercado-dashboard"/>
+    </div>
+    <button class="btn-save" onclick="saveConfig()">Salvar e recarregar</button>
+    <p style="color:var(--muted);font-size:11px;margin-top:12px">Salvo no navegador deste dispositivo.</p>
+  </div>
+
+  <div id="dashboard-content">
+    <div class="spinner"><div class="spin"></div><span>Carregando dados…</span></div>
+  </div>
+</main>
+
+<footer>Painel Mini Mercado · Atualiza a cada 5 min</footer>
+
+<script>
+const WEBHOOK_DEFAULT = 'https://manda2702.app.n8n.cloud/webhook/minmercado-dashboard';
+const REFRESH_MS = 5 * 60 * 1000;
+const INST_NOMES = { soul_brooklin: 'Mercadinho 1', minimart: 'Mercadinho 2', todas: 'Todas' };
+
+let estado = {
+  periodo:    localStorage.getItem('mm_periodo')    || 'hoje',
+  instalacao: localStorage.getItem('mm_instalacao') || 'todas'
+};
+let refreshTimer = null;
+
+function getWebhook() {
+  return localStorage.getItem('mm_webhook') || WEBHOOK_DEFAULT;
+}
+
+function setFiltro(tipo, valor, btn) {
+  // Remove active dos irmãos do mesmo grupo
+  btn.closest('.filter-group').querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  estado[tipo] = valor;
+  localStorage.setItem('mm_' + tipo, valor);
+  loadDashboard();
+}
+
+function toggleConfig(btn) {
+  const p = document.getElementById('config-panel');
+  const vis = p.style.display !== 'none';
+  p.style.display = vis ? 'none' : 'block';
+  document.getElementById('webhook-url').value = getWebhook();
+}
+
+function saveConfig() {
+  localStorage.setItem('mm_webhook', document.getElementById('webhook-url').value.trim());
+  document.getElementById('config-panel').style.display = 'none';
+  loadDashboard();
+}
+
+// ── DEMO DATA ───────────────────────────────────────────────
+function demoData(periodo, instalacao) {
+  const m = periodo === 'mes' ? 30 : periodo === 'semana' ? 7 : 1;
+  const split1 = instalacao === 'minimart' ? 0 : 0.6;
+  const split2 = instalacao === 'soul_brooklin' ? 0 : 0.4;
+  return {
+    faturamento: Math.round(1840 * m * 100) / 100,
+    faturamento_delta: 8.3,
+    ticket_medio: 28.60, ticket_delta: 2.1,
+    transacoes: 64 * m, transacoes_delta: -2.4,
+    margem_media: 34.2, margem_delta: 1.8,
+    por_hora: [0,0,0,0,0,0,0,8,22,35,40,55,78,72,58,45,66,88,102,84,58,36,18,5],
+    por_hora_soul: [0,0,0,0,0,0,0,5,14,22,25,35,50,45,36,28,40,55,65,52,36,22,11,3],
+    por_hora_mini:  [0,0,0,0,0,0,0,3,8,13,15,20,28,27,22,17,26,33,37,32,22,14,7,2],
+    top_produtos: [
+      {nome:'Coca-Cola 2L',       vendas:142*m,receita:Math.round(497*m*100)/100,margem:28},
+      {nome:'Biscoito recheado',  vendas:118*m,receita:Math.round(295*m*100)/100,margem:45},
+      {nome:'Água mineral',       vendas:109*m,receita:Math.round(163*m*100)/100,margem:52},
+      {nome:'Barra de cereal',    vendas:87*m, receita:Math.round(348*m*100)/100,margem:38},
+      {nome:'Suco caixinha',      vendas:76*m, receita:Math.round(228*m*100)/100,margem:41},
+      {nome:'Chiclete',           vendas:74*m, receita:Math.round(74*m*100)/100, margem:60},
+      {nome:'Energético 250ml',   vendas:52*m, receita:Math.round(364*m*100)/100,margem:55},
+      {nome:'Leite UHT 1L',       vendas:48*m, receita:Math.round(264*m*100)/100,margem:22},
+    ],
+    analise_margem: [
+      {nome:'Energético 250ml', margem:55,giro:'médio',giro_num:52*m, receita:364*m, hora_pico:'18h',classificacao:'estrela'},
+      {nome:'Chiclete',         margem:60,giro:'alto', giro_num:74*m, receita:74*m,  hora_pico:'12h',classificacao:'estrela'},
+      {nome:'Água mineral',     margem:52,giro:'alto', giro_num:109*m,receita:163*m, hora_pico:'13h',classificacao:'estrela'},
+      {nome:'Biscoito recheado',margem:45,giro:'alto', giro_num:118*m,receita:295*m, hora_pico:'15h',classificacao:'estrela'},
+      {nome:'Barra de cereal',  margem:38,giro:'alto', giro_num:87*m, receita:348*m, hora_pico:'11h',classificacao:'bom'},
+      {nome:'Coca-Cola 2L',     margem:28,giro:'alto', giro_num:142*m,receita:497*m, hora_pico:'19h',classificacao:'volume'},
+      {nome:'Leite UHT 1L',     margem:22,giro:'médio',giro_num:48*m, receita:264*m, hora_pico:'09h',classificacao:'revisar'},
+    ],
+    instalacoes: {
+      soul_brooklin: {nome:'Mercadinho 1',faturamento:Math.round(1840*m*split1*100)/100,transacoes:Math.round(64*m*split1)},
+      minimart:      {nome:'Mercadinho 2',faturamento:Math.round(1840*m*split2*100)/100,transacoes:Math.round(64*m*split2)}
+    },
+    estoque_baixo: []
+  };
+}
+
+// ── FETCH N8N ────────────────────────────────────────────────
+async function fetchData() {
+  const url = getWebhook();
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ periodo: estado.periodo, instalacao: estado.instalacao })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return await res.json();
+  } catch(e) {
+    console.warn('Usando demo:', e.message);
+    return demoData(estado.periodo, estado.instalacao);
+  }
+}
+
+// ── FORMATTERS ───────────────────────────────────────────────
+const fmt  = n => 'R$ ' + Number(n).toLocaleString('pt-BR', {minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtN = n => Number(n).toLocaleString('pt-BR');
+const deltaHtml = v => {
+  const up = v >= 0;
+  return `<span class="kpi-delta ${up?'delta-up':'delta-down'}">${up?'▲':'▼'} ${Math.abs(v).toFixed(1)}%</span>`;
+};
+const mClass = m => m >= 45 ? 'mh' : m >= 28 ? 'mm' : 'ml';
+const clsLabel = c => ({estrela:'⭐ Prioridade',bom:'✅ Bom',volume:'📦 Volume',revisar:'⚠️ Revisar'})[c] || c;
+
+// ── RENDER ───────────────────────────────────────────────────
+async function loadDashboard() {
+  const el = document.getElementById('dashboard-content');
+  el.innerHTML = '<div class="spinner"><div class="spin"></div><span>Buscando dados…</span></div>';
+
+  const d = await fetchData();
+  document.getElementById('last-update').textContent = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+
+  const inst = d.instalacoes || {};
+  const showSplit = estado.instalacao === 'todas';
+
+  // Escolhe array de hora certo
+  const horaArr = estado.instalacao === 'soul_brooklin' ? (d.por_hora_soul || d.por_hora)
+                : estado.instalacao === 'minimart'      ? (d.por_hora_mini || d.por_hora)
+                : d.por_hora;
+  const maxHora = Math.max(...horaArr, 1);
+  const maxVenda = Math.max(...(d.top_produtos||[]).map(p=>p.vendas), 1);
+  const maxRec   = Math.max(...(d.top_produtos||[]).map(p=>p.receita), 1);
+  const agora_h  = new Date().getHours();
+
+  el.innerHTML = `
+    ${showSplit ? `
+    <div class="inst-split" style="margin-bottom:16px">
+      <div class="inst-card">
+        <div>
+          <div class="inst-name">🏪 Mercadinho 1 — Soul Brooklin</div>
+          <div class="inst-val">${fmt(inst.soul_brooklin?.faturamento||0)}</div>
+          <div class="inst-sub">${fmtN(inst.soul_brooklin?.transacoes||0)} transações</div>
+        </div>
+        <div class="inst-icon">1️⃣</div>
+      </div>
+      <div class="inst-card">
+        <div>
+          <div class="inst-name">🏪 Mercadinho 2 — Minimart</div>
+          <div class="inst-val">${fmt(inst.minimart?.faturamento||0)}</div>
+          <div class="inst-sub">${fmtN(inst.minimart?.transacoes||0)} transações</div>
+        </div>
+        <div class="inst-icon">2️⃣</div>
+      </div>
+    </div>` : ''}
+
+    <div class="kpi-grid">
+      <div class="kpi" style="--kpi-color:var(--accent)">
+        <div class="kpi-label">Faturamento</div>
+        <div class="kpi-value">${fmt(d.faturamento)}</div>
+        ${deltaHtml(d.faturamento_delta)}
+      </div>
+      <div class="kpi" style="--kpi-color:var(--green)">
+        <div class="kpi-label">Margem média</div>
+        <div class="kpi-value">${(d.margem_media||0).toFixed(1)}%</div>
+        ${deltaHtml(d.margem_delta)}
+      </div>
+      <div class="kpi" style="--kpi-color:var(--blue)">
+        <div class="kpi-label">Ticket médio</div>
+        <div class="kpi-value">${fmt(d.ticket_medio)}</div>
+        ${deltaHtml(d.ticket_delta)}
+      </div>
+      <div class="kpi" style="--kpi-color:var(--purple)">
+        <div class="kpi-label">Transações</div>
+        <div class="kpi-value">${fmtN(d.transacoes)}</div>
+        ${deltaHtml(d.transacoes_delta)}
+      </div>
+    </div>
+
+    <div class="section-title">Cadência de vendas</div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Vendas por hora (BRT) <span class="card-badge">${INST_NOMES[estado.instalacao]}</span></div>
+      <div class="hour-wrap">
+        <div class="hour-chart">
+          ${horaArr.map((v,i)=>{
+            const pct = Math.max((v/maxHora)*100,2);
+            const isNow = i === agora_h;
+            const cor = isNow ? 'var(--accent)' : 'rgba(74,158,255,.35)';
+            return `<div class="hour-bar" style="height:${pct}%;background:${cor}" data-tip="${i<10?'0'+i:i}h: ${v} vendas"></div>`;
+          }).join('')}
+        </div>
+        <div class="hour-labels">
+          ${horaArr.map((_,i)=>i%4===0?`<span class="hour-lbl" style="flex:4">${i<10?'0'+i:i}h</span>`:'').join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">Mais vendidos <span class="card-badge">unidades</span></div>
+        <div class="bar-chart">
+          ${(d.top_produtos||[]).map((p,i)=>`
+            <div class="bar-row">
+              <div class="bar-label" title="${p.nome}"><span class="rank">${i+1}.</span> ${p.nome}</div>
+              <div class="bar-track"><div class="bar-fill" style="width:${(p.vendas/maxVenda*100).toFixed(0)}%;background:var(--blue)"></div></div>
+              <div class="bar-val">${fmtN(p.vendas)}</div>
+            </div>`).join('')}
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Maior receita <span class="card-badge">R$</span></div>
+        <div class="bar-chart">
+          ${[...(d.top_produtos||[])].sort((a,b)=>b.receita-a.receita).map((p,i)=>`
+            <div class="bar-row">
+              <div class="bar-label" title="${p.nome}"><span class="rank">${i+1}.</span> ${p.nome}</div>
+              <div class="bar-track"><div class="bar-fill" style="width:${(p.receita/maxRec*100).toFixed(0)}%;background:var(--accent)"></div></div>
+              <div class="bar-val">${fmt(p.receita)}</div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Otimização de espaço</div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">Margem × Giro × Cadência <span class="card-badge">prioridade de espaço</span></div>
+      <table class="margin-table">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Margem</th>
+            <th>Giro</th>
+            <th>Receita</th>
+            <th>Pico</th>
+            <th>Recomendação</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${(d.analise_margem||[]).map(p=>`
+            <tr>
+              <td>${p.nome}</td>
+              <td><span class="mpill ${mClass(p.margem)}">${p.margem}%</span></td>
+              <td style="color:var(--muted)">${p.giro_num} un</td>
+              <td style="font-family:var(--mono);font-size:12px">${fmt(p.receita)}</td>
+              <td style="color:var(--muted);font-size:11px">${p.hora_pico}</td>
+              <td>${clsLabel(p.classificacao)}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+      <div style="margin-top:16px;padding:12px;background:var(--bg3);border-radius:8px;font-size:11px;line-height:1.8;color:var(--muted)">
+        ⭐ <strong style="color:var(--text)">Prioridade</strong> — alta margem + alto giro: ocupa espaço nobre &nbsp;|&nbsp;
+        📦 <strong style="color:var(--text)">Volume</strong> — giro alto mas margem baixa: mantém se gira muito &nbsp;|&nbsp;
+        ⚠️ <strong style="color:var(--text)">Revisar</strong> — margem baixa e giro médio: candidato a substituição
+      </div>
+    </div>
+  `;
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+(function init() {
+  // Restaura filtros salvos nos pills
+  document.querySelectorAll('.filter-group').forEach(g => {
+    g.querySelectorAll('.pill').forEach(b => {
+      b.classList.remove('active');
+      const onclick = b.getAttribute('onclick') || '';
+      const m = onclick.match(/'([^']+)','([^']+)'/);
+      if (m && estado[m[1]] === m[2]) b.classList.add('active');
+    });
+  });
+
+  loadDashboard();
+  setInterval(loadDashboard, REFRESH_MS);
+})();
+</script>
+</body>
+</html>
