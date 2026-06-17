@@ -390,20 +390,26 @@ async function loadDashboard() {
     <div class="section-title">Otimização de espaço</div>
     <div class="card" style="margin-bottom:20px">
       <div class="card-title">Margem × Giro × Cadência <span class="card-badge">prioridade de espaço</span></div>
+      <div style="margin-bottom:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--border)">
+        <span>⭐ Prioridade = margem alta + giro alto</span>
+        <span>📦 Volume = giro alto + margem baixa</span>
+        <span>🔄 Avalia = margem alta + giro baixo</span>
+        <span>⚠️ Substituir = margem baixa + giro baixo</span>
+      </div>
       <div>
         ${(d.analise_margem||[]).map(p=>`
           <div class="mcard">
             <div>
               <div class="mcard-nome">${p.nome}</div>
               <div class="mcard-meta">
-                <span>${p.giro_num} un</span>
+                <span>${p.giro} un vendidas</span>
                 <span>pico ${p.hora_pico}</span>
-                <span style="font-family:var(--mono)">${fmt(p.receita)}</span>
+                <span style="font-family:var(--mono);color:var(--green)">lucro ${fmt(p.lucro||0)}</span>
               </div>
             </div>
             <div class="mcard-right">
               <span class="mpill ${mClass(p.margem)}">${p.margem}%</span>
-              <div class="mcard-rec">${clsLabel(p.classificacao)}</div>
+              <div class="mcard-rec">${p.cls_label||clsLabel(p.classificacao)}</div>
             </div>
           </div>`).join('')}
       </div>
