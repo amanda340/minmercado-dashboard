@@ -255,19 +255,10 @@ function demoData(periodo, instalacao) {
 // ── FETCH N8N ────────────────────────────────────────────────
 async function fetchData() {
   const url = getWebhook();
-  try {
-    const params = new URLSearchParams({ periodo: estado.periodo, instalacao: estado.instalacao });
-    const res = await fetch(url + '?' + params, {
-      
-      
-      
-    });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return await res.json();
-  } catch(e) {
-    console.warn('Usando demo:', e.message);
-    return demoData(estado.periodo, estado.instalacao);
-  }
+  const params = new URLSearchParams({ periodo: estado.periodo, instalacao: estado.instalacao });
+  const res = await fetch(url + '?' + params);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return await res.json();
 }
 
 // ── FORMATTERS ───────────────────────────────────────────────
@@ -285,7 +276,19 @@ async function loadDashboard() {
   const el = document.getElementById('dashboard-content');
   el.innerHTML = '<div class="spinner"><div class="spin"></div><span>Buscando dados…</span></div>';
 
-  const d = await fetchData();
+  let d;
+  try {
+    d = await fetchData();
+  } catch(e) {
+    el.innerHTML = `<div class="spinner" style="flex-direction:column;gap:12px">
+      <div style="font-size:32px">⚠️</div>
+      <div style="color:var(--red);font-weight:600">Erro ao buscar dados</div>
+      <div style="color:var(--muted);font-size:12px;text-align:center;max-width:280px">${e.message}</div>
+      <div style="color:var(--muted);font-size:11px">Webhook: ${getWebhook()}</div>
+      <button onclick="loadDashboard()" style="background:var(--accent);border:none;color:#000;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:600;margin-top:8px">Tentar novamente</button>
+    </div>`;
+    return;
+  }
   document.getElementById('last-update').textContent = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
 
   const inst = d.instalacoes || {};
