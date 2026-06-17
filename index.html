@@ -252,13 +252,31 @@ function demoData(periodo, instalacao) {
   };
 }
 
-// ── FETCH N8N ────────────────────────────────────────────────
+// ── FETCH DATA.JSON DO GITHUB ────────────────────────────────
+const DATA_URL = 'https://raw.githubusercontent.com/Amanda340/minmercado-dashboard/main/data.json';
+
 async function fetchData() {
-  const url = getWebhook();
-  const params = new URLSearchParams({ periodo: estado.periodo, instalacao: estado.instalacao });
-  const res = await fetch(url + '?' + params);
+  const res = await fetch(DATA_URL + '?t=' + Date.now());
   if (!res.ok) throw new Error('HTTP ' + res.status);
-  return await res.json();
+  const all = await res.json();
+  // Seleciona o período correto
+  const dados = all[estado.periodo] || all['todas'] || {};
+  // Adiciona campos de contexto
+  dados.atualizado_brt = all.atualizado_brt || '';
+  dados.total_buscado  = all.total_buscado  || 0;
+  dados.periodo        = estado.periodo;
+  dados.instalacao     = estado.instalacao;
+  dados.estoque_baixo  = dados.estoque_baixo || [];
+  // Filtra instalação se necessário
+  if (estado.instalacao !== 'todas' && dados.instalacoes) {
+    const inst = dados.instalacoes[estado.instalacao] || {};
+    dados.faturamento  = inst.faturamento  || 0;
+    dados.transacoes   = inst.transacoes   || 0;
+    // por_hora filtrado
+    if (estado.instalacao === 'soul_brooklin' && dados.por_hora_soul) dados.por_hora = dados.por_hora_soul;
+    if (estado.instalacao === 'minimart'      && dados.por_hora_mini) dados.por_hora = dados.por_hora_mini;
+  }
+  return dados;
 }
 
 // ── FORMATTERS ───────────────────────────────────────────────
@@ -289,7 +307,8 @@ async function loadDashboard() {
     </div>`;
     return;
   }
-  document.getElementById('last-update').textContent = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  const ts = d.atualizado_brt ? 'Dados de ' + d.atualizado_brt : new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('last-update').textContent = ts;
 
   const inst = d.instalacoes || {};
   const showSplit = estado.instalacao === 'todas';
