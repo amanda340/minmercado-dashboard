@@ -93,17 +93,17 @@
   .hour-labels{display:flex;gap:3px;margin-top:6px;min-width:300px}
   .hour-lbl{flex:1;text-align:center;font-size:9px;color:var(--muted)}
 
-  /* MARGEM TABLE */
-  .margin-table{width:100%;border-collapse:collapse}
-  .margin-table th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);
-    text-align:left;padding:0 0 10px;border-bottom:1px solid var(--border)}
-  .margin-table th:last-child,.margin-table td:last-child{text-align:right}
-  .margin-table td{padding:9px 0;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle}
-  .margin-table tr:last-child td{border-bottom:none}
+  /* MARGEM CARDS */
   .mpill{display:inline-block;padding:2px 8px;border-radius:8px;font-size:11px;font-weight:600;font-family:var(--mono)}
   .mh{background:rgba(46,204,113,.12);color:var(--green)}
   .mm{background:rgba(245,166,35,.12);color:var(--accent)}
   .ml{background:rgba(231,76,60,.12);color:var(--red)}
+  .mcard{border-bottom:1px solid var(--border);padding:10px 0;display:grid;grid-template-columns:1fr auto;gap:4px;align-items:center}
+  .mcard:last-child{border-bottom:none}
+  .mcard-nome{font-size:12px;font-weight:500;margin-bottom:4px;line-height:1.3}
+  .mcard-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+  .mcard-right{text-align:right}
+  .mcard-rec{font-size:11px;margin-top:4px}
   .rank{font-size:10px;color:var(--muted);font-family:var(--mono)}
 
   /* CONFIG */
@@ -390,29 +390,23 @@ async function loadDashboard() {
     <div class="section-title">Otimização de espaço</div>
     <div class="card" style="margin-bottom:20px">
       <div class="card-title">Margem × Giro × Cadência <span class="card-badge">prioridade de espaço</span></div>
-      <table class="margin-table">
-        <thead>
-          <tr>
-            <th>Produto</th>
-            <th>Margem</th>
-            <th>Giro</th>
-            <th>Receita</th>
-            <th>Pico</th>
-            <th>Recomendação</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${(d.analise_margem||[]).map(p=>`
-            <tr>
-              <td>${p.nome}</td>
-              <td><span class="mpill ${mClass(p.margem)}">${p.margem}%</span></td>
-              <td style="color:var(--muted)">${p.giro_num} un</td>
-              <td style="font-family:var(--mono);font-size:12px">${fmt(p.receita)}</td>
-              <td style="color:var(--muted);font-size:11px">${p.hora_pico}</td>
-              <td>${clsLabel(p.classificacao)}</td>
-            </tr>`).join('')}
-        </tbody>
-      </table>
+      <div>
+        ${(d.analise_margem||[]).map(p=>`
+          <div class="mcard">
+            <div>
+              <div class="mcard-nome">${p.nome}</div>
+              <div class="mcard-meta">
+                <span>${p.giro_num} un</span>
+                <span>pico ${p.hora_pico}</span>
+                <span style="font-family:var(--mono)">${fmt(p.receita)}</span>
+              </div>
+            </div>
+            <div class="mcard-right">
+              <span class="mpill ${mClass(p.margem)}">${p.margem}%</span>
+              <div class="mcard-rec">${clsLabel(p.classificacao)}</div>
+            </div>
+          </div>`).join('')}
+      </div>
       <div style="margin-top:16px;padding:12px;background:var(--bg3);border-radius:8px;font-size:11px;line-height:1.8;color:var(--muted)">
         ⭐ <strong style="color:var(--text)">Prioridade</strong> — alta margem + alto giro: ocupa espaço nobre &nbsp;|&nbsp;
         📦 <strong style="color:var(--text)">Volume</strong> — giro alto mas margem baixa: mantém se gira muito &nbsp;|&nbsp;
