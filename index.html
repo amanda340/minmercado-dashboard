@@ -124,6 +124,27 @@
     border-radius:50%;animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
 
+
+  /* CATEGORIAS */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:20px}
+  .cat-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;cursor:pointer;transition:border-color .2s}
+  .cat-card:hover{border-color:var(--accent)}
+  .cat-icon{font-size:22px;margin-bottom:6px}
+  .cat-nome{font-size:11px;font-weight:600;margin-bottom:8px;color:var(--text)}
+  .cat-lucro{font-family:var(--mono);font-size:14px;color:var(--green);font-weight:600}
+  .cat-meta{font-size:10px;color:var(--muted);margin-top:4px}
+  .cat-bar{height:3px;border-radius:2px;background:var(--accent);margin-top:8px;transition:width .8s}
+
+  /* INSIGHTS */
+  .insights-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+  .insight{display:flex;gap:12px;padding:14px;border-radius:var(--radius);border:1px solid transparent;align-items:flex-start}
+  .insight.positivo{background:rgba(46,204,113,.06);border-color:rgba(46,204,113,.2)}
+  .insight.info{background:rgba(74,158,255,.06);border-color:rgba(74,158,255,.2)}
+  .insight.alerta{background:rgba(245,166,35,.06);border-color:rgba(245,166,35,.2)}
+  .insight-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+  .insight-titulo{font-size:13px;font-weight:600;margin-bottom:4px}
+  .insight-texto{font-size:12px;color:var(--muted);line-height:1.5}
+
   footer{text-align:center;color:var(--muted);font-size:11px;padding:20px}
 </style>
 </head>
@@ -407,6 +428,36 @@ async function loadDashboard() {
             </div>`).join('')}
         </div>
       </div>
+    </div>
+
+
+    <div class="section-title">Insights do período</div>
+    <div class="insights-grid">
+      ${(d.insights||[]).map(i=>`
+        <div class="insight ${i.tipo}">
+          <div class="insight-icon">${i.tipo==='positivo'?'✅':i.tipo==='alerta'?'⚠️':'💡'}</div>
+          <div>
+            <div class="insight-titulo">${i.titulo}</div>
+            <div class="insight-texto">${i.texto}</div>
+          </div>
+        </div>`).join('')}
+    </div>
+
+    <div class="section-title">Performance por categoria</div>
+    <div class="cat-grid" style="margin-bottom:20px">
+      ${(d.categorias_mes||[]).map((c,i)=>{
+        const maxL = Math.max(...(d.categorias_mes||[]).map(x=>x.lucro),1);
+        const icons = {'Águas':'💧','Cervejas':'🍺','Refrigerantes':'🥤','Energéticos':'⚡','Laticínios/Café':'☕','Snacks':'🍿','Doces/Confetes':'🍫','Refeições':'🥗','Sucos':'🍊','Saudáveis':'💪','Outros':'📦'};
+        const icon = icons[c.nome]||'📦';
+        const pct = Math.round(c.lucro/maxL*100);
+        return `<div class="cat-card">
+          <div class="cat-icon">${icon}</div>
+          <div class="cat-nome">${c.nome}</div>
+          <div class="cat-lucro">R$ ${c.lucro.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
+          <div class="cat-meta">${c.margem_media}% margem · ${c.giro} un</div>
+          <div class="cat-bar" style="width:${pct}%"></div>
+        </div>`;
+      }).join('')}
     </div>
 
     <div class="section-title">Otimização de espaço</div>
