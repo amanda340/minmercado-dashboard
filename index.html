@@ -431,7 +431,7 @@ async function loadDashboard() {
     </div>
 
 
-    <div class="section-title">Insights do período</div>
+    <div class="section-title">Insights do período <span style="background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">📅 sempre baseado no mês atual</span></div>
     <div class="insights-grid">
       ${(d.insights||[]).map(i=>`
         <div class="insight ${i.tipo}">
@@ -443,7 +443,7 @@ async function loadDashboard() {
         </div>`).join('')}
     </div>
 
-    <div class="section-title">Performance por categoria</div>
+    <div class="section-title">Performance por categoria <span style="background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">📅 sempre baseado no mês atual</span></div>
     <div class="cat-grid" style="margin-bottom:20px">
       ${(d.categorias_mes||[]).map((c,i)=>{
         const maxL = Math.max(...(d.categorias_mes||[]).map(x=>x.lucro),1);
@@ -460,7 +460,7 @@ async function loadDashboard() {
       }).join('')}
     </div>
 
-    <div class="section-title">Otimização de espaço <span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">— sempre baseado no mês atual</span></div>
+    <div class="section-title">Otimização de espaço <span style="background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">📅 sempre baseado no mês atual</span></div>
     <div class="card" style="margin-bottom:20px">
 
       <!-- Legenda dos quadrantes -->
