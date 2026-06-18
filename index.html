@@ -477,11 +477,15 @@ async function loadDashboard() {
               <div class="mcard-meta">
                 <span>${p.giro} un vendidas</span>
                 <span>pico ${p.hora_pico}</span>
-                <span style="font-family:var(--mono);color:var(--green)">lucro ${fmt(p.lucro||0)}</span>
+                ${p.margem < 100 && p.margem > 0
+                  ? `<span style="font-family:var(--mono);color:var(--green)">lucro ${fmt(p.lucro||0)}</span>`
+                  : `<span style="color:var(--muted);font-size:10px">⚠️ cadastre o custo no VMpay</span>`}
               </div>
             </div>
             <div class="mcard-right">
-              <span class="mpill ${mClass(p.margem)}">${p.margem}%</span>
+              ${p.margem < 100 && p.margem > 0
+                ? `<span class="mpill ${mClass(p.margem)}">${p.margem}%</span>`
+                : `<span class="mpill" style="background:rgba(122,127,148,.1);color:var(--muted)">sem custo</span>`}
               <div class="mcard-rec">${p.cls_label||clsLabel(p.classificacao)}</div>
             </div>
           </div>`).join('')}
