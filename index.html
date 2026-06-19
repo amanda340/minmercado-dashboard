@@ -127,11 +127,11 @@
 
   /* CATEGORIAS */
   .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:20px}
-  .cat-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;cursor:pointer;transition:border-color .2s}
+  .cat-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;transition:border-color .2s;display:block}
   .cat-card:hover{border-color:var(--accent)}
-  .cat-expand{display:none;margin-top:10px}
-  .cat-card.expanded .cat-expand{display:block}
-  .cat-card.expanded{border-color:var(--accent)}
+  .cat-card[open]{border-color:var(--accent)}
+  .cat-card summary::-webkit-details-marker{display:none}
+  .cat-expand{display:block;margin-top:10px}
   .cat-icon{font-size:22px;margin-bottom:6px}
   .cat-nome{font-size:11px;font-weight:600;margin-bottom:8px;color:var(--text)}
   .cat-lucro{font-family:var(--mono);font-size:14px;color:var(--green);font-weight:600}
@@ -464,14 +464,16 @@ async function loadDashboard() {
             <span style="color:var(--text);flex:1;margin-right:8px">${p.nome}</span>
             <span style="color:var(--green);font-family:var(--mono);white-space:nowrap">R$ ${p.lucro.toFixed(2)}</span>
           </div>`).join('');
-        return `<div class="cat-card" onclick="this.classList.toggle('expanded')" style="cursor:pointer">
-          <div class="cat-icon">${icon}</div>
-          <div class="cat-nome">${c.nome} <span style="color:var(--muted);font-size:9px">▾ ${c.n_produtos} itens</span></div>
-          <div class="cat-lucro">R$ ${c.lucro.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
-          <div class="cat-meta">${c.margem_media}% margem · ${c.giro} un</div>
-          <div class="cat-bar" style="width:${pct}%"></div>
-          <div class="cat-expand">${top3html}</div>
-        </div>`;
+        return `<details class="cat-card">
+          <summary style="list-style:none;cursor:pointer">
+            <div class="cat-icon">${icon}</div>
+            <div class="cat-nome">${c.nome} <span style="color:var(--muted);font-size:9px">▾ ${c.n_produtos} itens</span></div>
+            <div class="cat-lucro">R$ ${c.lucro.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
+            <div class="cat-meta">${c.margem_media}% margem · ${c.giro} un</div>
+            <div class="cat-bar" style="width:${pct}%"></div>
+          </summary>
+          <div class="cat-expand" style="display:block;margin-top:10px">${top3html}</div>
+        </details>`;
       }).join('')}
     </div>
 
