@@ -326,10 +326,7 @@ async function fetchData() {
 // ── FORMATTERS ───────────────────────────────────────────────
 const fmt  = n => 'R$ ' + Number(n).toLocaleString('pt-BR', {minimumFractionDigits:2,maximumFractionDigits:2});
 const fmtN = n => Number(n).toLocaleString('pt-BR');
-const deltaHtml = v => {
-  const up = v >= 0;
-  return `<span class="kpi-delta ${up?'delta-up':'delta-down'}">${up?'▲':'▼'} ${Math.abs(v).toFixed(1)}%</span>`;
-};
+// deltaHtml removido — comparação de períodos pendente
 const mClass = m => m >= 45 ? 'mh' : m >= 28 ? 'mm' : 'ml';
 const clsLabel = c => ({estrela:'⭐ Prioridade',bom:'✅ Bom',volume:'📦 Volume',revisar:'⚠️ Revisar'})[c] || c;
 
@@ -391,22 +388,18 @@ async function loadDashboard() {
       <div class="kpi" style="--kpi-color:var(--accent)">
         <div class="kpi-label">Faturamento</div>
         <div class="kpi-value">${fmt(d.faturamento)}</div>
-        ${deltaHtml(d.faturamento_delta)}
       </div>
       <div class="kpi" style="--kpi-color:var(--green)">
         <div class="kpi-label">Margem média</div>
         <div class="kpi-value">${(d.margem_media||0).toFixed(1)}%</div>
-        ${deltaHtml(d.margem_delta)}
       </div>
       <div class="kpi" style="--kpi-color:var(--blue)">
         <div class="kpi-label">Ticket médio</div>
         <div class="kpi-value">${fmt(d.ticket_medio)}</div>
-        ${deltaHtml(d.ticket_delta)}
       </div>
       <div class="kpi" style="--kpi-color:var(--purple)">
         <div class="kpi-label">Transações</div>
         <div class="kpi-value">${fmtN(d.transacoes)}</div>
-        ${deltaHtml(d.transacoes_delta)}
       </div>
     </div>
 
