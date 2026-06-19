@@ -489,27 +489,26 @@ async function loadDashboard() {
         if (!itens.length) return '';
         const labels = {estrela:'⭐ Prioridade',volume:'📦 Volume',avalia:'🔄 Avalia',remove:'⚠️ Substituir'};
         const colors = {estrela:'var(--accent)',volume:'var(--blue)',avalia:'var(--purple)',remove:'var(--red)'};
-        return \`
+        return `
         <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:\${colors[cls]};margin-bottom:8px">\${labels[cls]}</div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:${colors[cls]};margin-bottom:8px">${labels[cls]}</div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            \${itens.map(p => \`
+            ${itens.map(p => `
               <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--bg3);border-radius:8px">
                 <div style="flex:1;min-width:0">
-                  <div style="font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">\${p.nome}</div>
-                  <div style="font-size:10px;color:var(--muted);margin-top:2px">\${p.giro} un · pico \${p.hora_pico} · lucro \${fmt(p.lucro)}</div>
+                  <div style="font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.nome}</div>
+                  <div style="font-size:10px;color:var(--muted);margin-top:2px">${p.giro} un · pico ${p.hora_pico} · lucro ${fmt(p.lucro)}</div>
                 </div>
-                <span class="mpill \${mClass(p.margem)}">\${p.margem}%</span>
-              </div>\`).join('')}
+                <span class="mpill ${mClass(p.margem)}">${p.margem}%</span>
+              </div>`).join('')}
           </div>
-        </div>\`;
+        </div>`;
       }).join('')}
 
       <p style="font-size:10px;color:var(--muted);margin-top:8px;text-align:center">
-        Análise baseada em \${d.mes?.transacoes||0} vendas de junho · \${d.atualizado_brt||''}
+        Análise baseada em ${d.mes?.transacoes||0} vendas de junho · ${d.atualizado_brt||''}
       </p>
     </div>
-  \`;
   `;
 }
 
