@@ -473,7 +473,7 @@ async function loadDashboard() {
             : margemParcial != null
             ? `<span style="background:rgba(255,200,0,.1);color:#ffc800;border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700" title="${pctCusto}% dos produtos têm custo">~${margemParcial}% parcial</span>`
             : `<span style="color:var(--muted);font-size:10px">sem custo</span>`;
-          const prods = (f.produtos||[]).slice(0,5).map(p=>{
+          const prods = [...(f.produtos||[])].sort((a,b)=>b.qtd-a.qtd).slice(0,5).map(p=>{
             const pm = p.margem != null ? ` · ${p.margem}%` : '';
             return `<div class="fab-prod-row"><span>${p.nome.substring(0,35)}</span><span style="font-family:var(--mono)">${p.qtd} un · R$ ${p.receita.toFixed(2)}${pm}</span></div>`;
           }).join('');
