@@ -310,6 +310,7 @@ async function fetchData() {
   dados.mes            = all.mes || {};
   dados.insights       = all.insights || [];
   dados.categorias_mes = all.categorias_mes || [];
+  dados.fabricantes_mes = all.fabricantes_mes || [];
   // Filtra instalação se necessário
   if (estado.instalacao !== 'todas' && dados.instalacoes) {
     const inst = dados.instalacoes[estado.instalacao] || {};
