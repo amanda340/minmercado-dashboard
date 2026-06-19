@@ -455,9 +455,18 @@ async function loadDashboard() {
         const PINNED = [3301712, 3301713, 4099168, 3301644, 4523922];
         // Nomes fixados corrigidos com nomes reais da API VMpay
         const pinnedNomes = {3301712:'Bacio di Latte', 3301713:'Kibon', 4099168:'Mundo Verde', 3301644:'Yoki', 4523922:'Pudim'};
+        // Ordenação por lucro — fabricantes sem custo vão ao final
+        const lucroOuZero = f => f.lucro || 0;
+        const temLucroReal = f => f.margem != null || f.margem_parcial != null;
         const sorted = [
-          ...fabs.filter(f=>PINNED.includes(f.manufacturer_id)).sort((a,b)=>b.receita-a.receita),
-          ...fabs.filter(f=>!PINNED.includes(f.manufacturer_id)).sort((a,b)=>b.receita-a.receita)
+          // 1) Fixados com lucro real, por lucro desc
+          ...fabs.filter(f=>PINNED.includes(f.manufacturer_id) && temLucroReal(f)).sort((a,b)=>lucroOuZero(b)-lucroOuZero(a)),
+          // 2) Fixados sem custo, por receita desc
+          ...fabs.filter(f=>PINNED.includes(f.manufacturer_id) && !temLucroReal(f)).sort((a,b)=>b.receita-a.receita),
+          // 3) Não-fixados com lucro real, por lucro desc
+          ...fabs.filter(f=>!PINNED.includes(f.manufacturer_id) && temLucroReal(f)).sort((a,b)=>lucroOuZero(b)-lucroOuZero(a)),
+          // 4) Não-fixados sem custo, por receita desc
+          ...fabs.filter(f=>!PINNED.includes(f.manufacturer_id) && !temLucroReal(f)).sort((a,b)=>b.receita-a.receita)
         ];
         return sorted.map(f => {
           const isPinned = PINNED.includes(f.manufacturer_id);
