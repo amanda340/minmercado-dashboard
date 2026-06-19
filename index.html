@@ -148,6 +148,19 @@
   .insight-titulo{font-size:13px;font-weight:600;margin-bottom:4px}
   .insight-texto{font-size:12px;color:var(--muted);line-height:1.5}
 
+
+  /* FABRICANTES */
+  .fab-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+  .fab-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+  .fab-card.pinned{border-color:var(--accent)}
+  .fab-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .fab-nome{font-size:13px;font-weight:600}
+  .fab-pin{font-size:10px;background:rgba(245,166,35,.15);color:var(--accent);padding:2px 6px;border-radius:8px}
+  .fab-stats{display:flex;gap:12px;font-size:11px;color:var(--muted)}
+  .fab-produtos{margin-top:8px;border-top:1px solid var(--border);padding-top:8px;display:none}
+  .fab-card.open .fab-produtos{display:block}
+  .fab-prod-row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0}
+
   footer{text-align:center;color:var(--muted);font-size:11px;padding:20px}
 </style>
 </head>
@@ -439,6 +452,39 @@ async function loadDashboard() {
       </div>
     </div>
 
+
+
+    <div class="section-title">Fabricantes <span style="background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">📅 mês atual</span></div>
+    <div class="fab-grid">
+      ${(() => {
+        const fabs = d.fabricantes_mes || [];
+        const PINNED = [3301712, 3301713, 4099168, 3301644, 4523922];
+        const pinnedNomes = {3301712:'Sorvetes',3301713:'Kibon',4099168:'Léo Pipocas',3301644:'Yoki',4523922:'Pudim'};
+        const sorted = [
+          ...fabs.filter(f=>PINNED.includes(f.manufacturer_id)).sort((a,b)=>b.receita-a.receita),
+          ...fabs.filter(f=>!PINNED.includes(f.manufacturer_id)).sort((a,b)=>b.receita-a.receita).slice(0,8)
+        ];
+        return sorted.map(f => {
+          const isPinned = PINNED.includes(f.manufacturer_id);
+          const nome = pinnedNomes[f.manufacturer_id] || f.nome_aprox || 'Fabricante '+f.manufacturer_id;
+          const prods = (f.produtos||[]).slice(0,5).map(p=>
+            `<div class="fab-prod-row"><span>${p.nome.substring(0,35)}</span><span style="font-family:var(--mono)">${p.qtd} un · R$ ${p.receita.toFixed(2)}</span></div>`
+          ).join('');
+          return `<div class="fab-card ${isPinned?'pinned':''}" onclick="this.classList.toggle('open')">
+            <div class="fab-header">
+              <span class="fab-nome">${nome}</span>
+              ${isPinned?'<span class="fab-pin">📌 fixado</span>':''}
+            </div>
+            <div class="fab-stats">
+              <span>R$ ${f.receita.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span>
+              <span>${f.giro} un vendidas</span>
+              <span>${f.produtos?.length||0} produtos</span>
+            </div>
+            <div class="fab-produtos">${prods}<div style="font-size:10px;color:var(--muted);margin-top:4px">▾ toque para expandir/fechar</div></div>
+          </div>`;
+        }).join('');
+      })()}
+    </div>
 
     <div class="section-title">Insights do período <span style="background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">📅 sempre baseado no mês atual</span></div>
     <div class="insights-grid">
