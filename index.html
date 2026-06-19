@@ -471,8 +471,12 @@ async function loadDashboard() {
           // Usa nome real da API; fixados têm override; fallback para ID
           const nome = pinnedNomes[f.manufacturer_id] || f.nome || f.nome_aprox || 'Fabricante '+f.manufacturer_id;
           const margem = f.margem != null ? f.margem : null;
+          const margemParcial = f.margem_parcial != null ? f.margem_parcial : null;
+          const pctCusto = f.pct_com_custo || 0;
           const margemHtml = margem != null
             ? `<span style="background:${margem>=50?'rgba(0,200,100,.15)':margem>=30?'rgba(255,200,0,.15)':'rgba(255,80,80,.15)'};color:${margem>=50?'#00c864':margem>=30?'#ffc800':'#ff5050'};border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700">${margem}% margem</span>`
+            : margemParcial != null
+            ? `<span style="background:rgba(255,200,0,.1);color:#ffc800;border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700" title="${pctCusto}% dos produtos têm custo">~${margemParcial}% parcial</span>`
             : `<span style="color:var(--muted);font-size:10px">sem custo</span>`;
           const prods = (f.produtos||[]).slice(0,5).map(p=>{
             const pm = p.margem != null ? ` · ${p.margem}%` : '';
