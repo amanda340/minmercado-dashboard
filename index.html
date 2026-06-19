@@ -276,10 +276,13 @@ function demoData(periodo, instalacao) {
 // ── FETCH DATA.JSON DO GITHUB ────────────────────────────────
 const DATA_URL = 'https://raw.githubusercontent.com/Amanda340/minmercado-dashboard/main/data.json';
 
+let ULTIMO_ALL = null;
+
 async function fetchData() {
   const res = await fetch(DATA_URL + '?t=' + Date.now(), { signal: AbortSignal.timeout(8000) });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   const all = await res.json();
+  ULTIMO_ALL = all;
   // Seleciona o período correto
   const dados = all[estado.periodo] || all['todas'] || {};
   // Adiciona campos de contexto
@@ -288,6 +291,9 @@ async function fetchData() {
   dados.periodo        = estado.periodo;
   dados.instalacao     = estado.instalacao;
   dados.estoque_baixo  = dados.estoque_baixo || [];
+  dados.mes            = all.mes || {};
+  dados.insights       = all.insights || [];
+  dados.categorias_mes = all.categorias_mes || [];
   // Filtra instalação se necessário
   if (estado.instalacao !== 'todas' && dados.instalacoes) {
     const inst = dados.instalacoes[estado.instalacao] || {};
