@@ -460,17 +460,24 @@ async function loadDashboard() {
       ${(() => {
         const fabs = d.fabricantes_mes || [];
         const PINNED = [3301712, 3301713, 4099168, 3301644, 4523922];
-        const pinnedNomes = {3301712:'Sorvetes',3301713:'Kibon',4099168:'Léo Pipocas',3301644:'Yoki',4523922:'Pudim'};
+        // Nomes fixados corrigidos com nomes reais da API VMpay
+        const pinnedNomes = {3301712:'Bacio di Latte', 3301713:'Kibon', 4099168:'Mundo Verde', 3301644:'Yoki', 4523922:'Pudim'};
         const sorted = [
           ...fabs.filter(f=>PINNED.includes(f.manufacturer_id)).sort((a,b)=>b.receita-a.receita),
-          ...fabs.filter(f=>!PINNED.includes(f.manufacturer_id)).sort((a,b)=>b.receita-a.receita).slice(0,8)
+          ...fabs.filter(f=>!PINNED.includes(f.manufacturer_id)).sort((a,b)=>b.receita-a.receita)
         ];
         return sorted.map(f => {
           const isPinned = PINNED.includes(f.manufacturer_id);
-          const nome = pinnedNomes[f.manufacturer_id] || f.nome_aprox || 'Fabricante '+f.manufacturer_id;
-          const prods = (f.produtos||[]).slice(0,5).map(p=>
-            `<div class="fab-prod-row"><span>${p.nome.substring(0,35)}</span><span style="font-family:var(--mono)">${p.qtd} un · R$ ${p.receita.toFixed(2)}</span></div>`
-          ).join('');
+          // Usa nome real da API; fixados têm override; fallback para ID
+          const nome = pinnedNomes[f.manufacturer_id] || f.nome || f.nome_aprox || 'Fabricante '+f.manufacturer_id;
+          const margem = f.margem != null ? f.margem : null;
+          const margemHtml = margem != null
+            ? `<span style="background:${margem>=50?'rgba(0,200,100,.15)':margem>=30?'rgba(255,200,0,.15)':'rgba(255,80,80,.15)'};color:${margem>=50?'#00c864':margem>=30?'#ffc800':'#ff5050'};border-radius:6px;padding:1px 7px;font-size:11px;font-weight:700">${margem}% margem</span>`
+            : `<span style="color:var(--muted);font-size:10px">sem custo</span>`;
+          const prods = (f.produtos||[]).slice(0,5).map(p=>{
+            const pm = p.margem != null ? ` · ${p.margem}%` : '';
+            return `<div class="fab-prod-row"><span>${p.nome.substring(0,35)}</span><span style="font-family:var(--mono)">${p.qtd} un · R$ ${p.receita.toFixed(2)}${pm}</span></div>`;
+          }).join('');
           return `<div class="fab-card ${isPinned?'pinned':''}" onclick="this.classList.toggle('open')">
             <div class="fab-header">
               <span class="fab-nome">${nome}</span>
@@ -480,6 +487,7 @@ async function loadDashboard() {
               <span>R$ ${f.receita.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span>
               <span>${f.giro} un vendidas</span>
               <span>${f.produtos?.length||0} produtos</span>
+              ${margemHtml}
             </div>
             <div class="fab-produtos">${prods}<div style="font-size:10px;color:var(--muted);margin-top:4px">▾ toque para expandir/fechar</div></div>
           </div>`;
