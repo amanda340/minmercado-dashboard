@@ -452,9 +452,9 @@ async function loadDashboard() {
     <div class="fab-grid">
       ${(() => {
         const fabs = d.fabricantes_mes || [];
-        const PINNED = [3301712, 3301713, 4099168, 4523922, 3301677, 4209578];
+        const PINNED = [3301712, 3301713, 4099168, 4523922, 3301677, 4209578, 4209575];
         // Nomes fixados corrigidos com nomes reais da API VMpay
-        const pinnedNomes = {3301712:'Bacio di Latte', 3301713:'Kibon', 4099168:'Mundo Verde', 4523922:'Pudim', 3301677:'SR.OGRO', 4209578:'NORAC'};
+        const pinnedNomes = {3301712:'Bacio di Latte', 3301713:'Kibon', 4099168:'Mundo Verde', 4523922:'Pudim', 3301677:'SR.OGRO', 4209578:'NORAC', 4209575:'Máquina Nestlé'};
         // Ordenação: tudo por lucro total desc; sem custo vai ao final; fixados só têm borda visual
         const temLucroReal = f => f.margem != null || f.margem_parcial != null;
         const sorted = [
