@@ -1,16 +1,16 @@
 {
   "hoje": {
-    "faturamento": 0,
+    "faturamento": 128.89,
     "faturamento_delta": 0,
-    "ticket_medio": 0,
+    "ticket_medio": 11.72,
     "ticket_delta": 0,
-    "transacoes": 0,
+    "transacoes": 11,
     "transacoes_delta": 0,
-    "margem_media": 0,
+    "margem_media": 44.6,
     "margem_delta": 0,
     "por_hora": [
       0,
-      0,
+      11,
       0,
       0,
       0,
@@ -36,7 +36,7 @@
     ],
     "por_hora_soul": [
       0,
-      0,
+      10,
       0,
       0,
       0,
@@ -62,7 +62,7 @@
     ],
     "por_hora_mini": [
       0,
-      0,
+      1,
       0,
       0,
       0,
@@ -86,137 +86,574 @@
       0,
       0
     ],
-    "top_produtos": [],
-    "analise_margem": [],
+    "top_produtos": [
+      {
+        "nome": "KIBON FRUTTARE SORV PALITO LIMAO 58G",
+        "vendas": 3,
+        "receita": 32.97,
+        "margem": 36
+      },
+      {
+        "nome": "NESTLÉ WAFER  CHOCOLATE BRANCO-KITKAT-41,5G",
+        "vendas": 1,
+        "receita": 6.99,
+        "margem": 43
+      },
+      {
+        "nome": "NISSIN LÁMEN MACARRÃO INSTANTÂNEO COM TEMPERO SABOR GALINHA CAIPIRA-80G",
+        "vendas": 1,
+        "receita": 4.99,
+        "margem": 43
+      },
+      {
+        "nome": "KIBON ESK SORV M BBOM 92,1G",
+        "vendas": 1,
+        "receita": 21.99,
+        "margem": 38
+      },
+      {
+        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "vendas": 1,
+        "receita": 12.99,
+        "margem": 50
+      },
+      {
+        "nome": "LACTA DIAMANTE NEGRO",
+        "vendas": 1,
+        "receita": 12.99,
+        "margem": 46
+      },
+      {
+        "nome": "ISQUEIRO MINI",
+        "vendas": 1,
+        "receita": 7.99,
+        "margem": 64
+      },
+      {
+        "nome": "HOT POCKET CHEDDAR",
+        "vendas": 1,
+        "receita": 13.99,
+        "margem": 46
+      },
+      {
+        "nome": "HOT POCKET BURGUER",
+        "vendas": 1,
+        "receita": 13.99,
+        "margem": 57
+      }
+    ],
+    "analise_margem": [
+      {
+        "nome": "HOT POCKET BURGUER",
+        "margem": 57,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 13.99,
+        "lucro": 8,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "margem": 50,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 12.99,
+        "lucro": 6.54,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "HOT POCKET CHEDDAR",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 13.99,
+        "lucro": 6.5,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LACTA DIAMANTE NEGRO",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 12.99,
+        "lucro": 6,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "ISQUEIRO MINI",
+        "margem": 64,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 7.99,
+        "lucro": 5.08,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "KIBON FRUTTARE SORV PALITO LIMAO 58G",
+        "margem": 36,
+        "tem_custo": true,
+        "giro": 3,
+        "receita": 32.97,
+        "lucro": 11.85,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      },
+      {
+        "nome": "KIBON ESK SORV M BBOM 92,1G",
+        "margem": 38,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 21.99,
+        "lucro": 8.41,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      },
+      {
+        "nome": "NESTLÉ WAFER  CHOCOLATE BRANCO-KITKAT-41,5G",
+        "margem": 43,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 6.99,
+        "lucro": 3,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      },
+      {
+        "nome": "NISSIN LÁMEN MACARRÃO INSTANTÂNEO COM TEMPERO SABOR GALINHA CAIPIRA-80G",
+        "margem": 43,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 4.99,
+        "lucro": 2.14,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      }
+    ],
     "estoque_baixo": [],
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 123.9,
+        "transacoes": 10
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 4.99,
+        "transacoes": 1
       }
     }
   },
   "semana": {
-    "faturamento": 0,
+    "faturamento": 12134.13,
     "faturamento_delta": 0,
-    "ticket_medio": 0,
+    "ticket_medio": 10.65,
     "ticket_delta": 0,
-    "transacoes": 0,
+    "transacoes": 1139,
     "transacoes_delta": 0,
-    "margem_media": 0,
+    "margem_media": 44.7,
     "margem_delta": 0,
     "por_hora": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      31,
+      24,
+      2,
+      8,
+      3,
+      5,
+      5,
+      7,
+      23,
+      29,
+      31,
+      44,
+      62,
+      76,
+      62,
+      91,
+      57,
+      61,
+      99,
+      98,
+      107,
+      83,
+      64,
+      67
     ],
     "por_hora_soul": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      30,
+      23,
+      2,
+      6,
+      3,
+      5,
+      5,
+      7,
+      19,
+      28,
+      29,
+      41,
+      61,
+      75,
+      60,
+      86,
+      57,
+      57,
+      97,
+      94,
+      104,
+      78,
+      60,
+      62
     ],
     "por_hora_mini": [
+      1,
+      1,
+      0,
+      2,
       0,
       0,
       0,
       0,
+      4,
+      1,
+      2,
+      3,
+      1,
+      1,
+      2,
+      5,
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      4,
+      2,
+      4,
+      3,
+      5,
+      4,
+      5
     ],
-    "top_produtos": [],
-    "analise_margem": [],
+    "top_produtos": [
+      {
+        "nome": "FRESCOA ÁGUA MINERAL NATURAL SEM GÁS-1,5L",
+        "vendas": 95,
+        "receita": 569.05,
+        "margem": 58
+      },
+      {
+        "nome": "COCA-COLA ZERO 600 ML",
+        "vendas": 45,
+        "receita": 382.05,
+        "margem": 45
+      },
+      {
+        "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
+        "vendas": 44,
+        "receita": 351.56,
+        "margem": 38
+      },
+      {
+        "nome": "NESTLÉ BEBIDA CREMOSA",
+        "vendas": 30,
+        "receita": 299.7,
+        "margem": 60
+      },
+      {
+        "nome": "STELLA ARTOIS PURE GOLD 330 ML",
+        "vendas": 26,
+        "receita": 246.74,
+        "margem": 32
+      },
+      {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "vendas": 22,
+        "receita": 175.78,
+        "margem": 75
+      },
+      {
+        "nome": "CRYSTAL  ÁGUA MIN C GÁS-500ML",
+        "vendas": 19,
+        "receita": 75.81,
+        "margem": 30
+      },
+      {
+        "nome": "CRYSTAL  ÁGUA MIN S GÁS-500ML",
+        "vendas": 18,
+        "receita": 71.82,
+        "margem": 40
+      },
+      {
+        "nome": "NESTLÉ WAFER  CHOCOLATE  LEITE- KITKAT-41,5G",
+        "vendas": 17,
+        "receita": 116.13,
+        "margem": 42
+      },
+      {
+        "nome": "BUDWEISER CERVEJA 330ML",
+        "vendas": 17,
+        "receita": 118.83,
+        "margem": 30
+      }
+    ],
+    "analise_margem": [
+      {
+        "nome": "FRESCOA ÁGUA MINERAL NATURAL SEM GÁS-1,5L",
+        "margem": 58,
+        "tem_custo": true,
+        "giro": 95,
+        "receita": 569.05,
+        "lucro": 332.5,
+        "hora_pico": "16h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "NESTLÉ BEBIDA CREMOSA",
+        "margem": 60,
+        "tem_custo": true,
+        "giro": 30,
+        "receita": 299.7,
+        "lucro": 179.7,
+        "hora_pico": "18h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "COCA-COLA ZERO 600 ML",
+        "margem": 45,
+        "tem_custo": true,
+        "giro": 45,
+        "receita": 382.05,
+        "lucro": 171,
+        "hora_pico": "13h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "margem": 75,
+        "tem_custo": true,
+        "giro": 22,
+        "receita": 175.78,
+        "lucro": 131.78,
+        "hora_pico": "9h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "PIPOCA PRONTA CACAU 75G MV SELECAO",
+        "margem": 47,
+        "tem_custo": true,
+        "giro": 10,
+        "receita": 129.9,
+        "lucro": 60.9,
+        "hora_pico": "18h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LAYS BATATA LISA FRITA-62G",
+        "margem": 57,
+        "tem_custo": true,
+        "giro": 7,
+        "receita": 97.93,
+        "lucro": 56,
+        "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LEITE ITALAC 3%",
+        "margem": 54,
+        "tem_custo": true,
+        "giro": 10,
+        "receita": 99.9,
+        "lucro": 54,
+        "hora_pico": "8h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LIVUP ALMONDEGAS",
+        "margem": 55,
+        "tem_custo": true,
+        "giro": 3,
+        "receita": 98.97,
+        "lucro": 54,
+        "hora_pico": "19h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "DORITOs 120G",
+        "margem": 47,
+        "tem_custo": true,
+        "giro": 7,
+        "receita": 104.93,
+        "lucro": 49,
+        "hora_pico": "14h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "BIS XTRA",
+        "margem": 54,
+        "tem_custo": true,
+        "giro": 13,
+        "receita": 84.37,
+        "lucro": 45.5,
+        "hora_pico": "23h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LASANHA SEARA BOLONHESA",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 4,
+        "receita": 95.96,
+        "lucro": 44,
+        "hora_pico": "15h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "ESCOVA DE DENTE NAVY",
+        "margem": 81,
+        "tem_custo": true,
+        "giro": 6,
+        "receita": 53.94,
+        "lucro": 43.92,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "SANTA HELENA PAÇOQUITA ORIGINAL-20G",
+        "margem": 81,
+        "tem_custo": true,
+        "giro": 17,
+        "receita": 50.83,
+        "lucro": 41.31,
+        "hora_pico": "19h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "RED BULL ENERGY DRINK COM TAURINA-250ML",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 7,
+        "receita": 87.43,
+        "lucro": 40.6,
+        "hora_pico": "16h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "CHOCO BISCUIT",
+        "margem": 45,
+        "tem_custo": true,
+        "giro": 8,
+        "receita": 87.92,
+        "lucro": 40,
+        "hora_pico": "12h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "VISCONTI INTEGRAL",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 6,
+        "receita": 77.94,
+        "lucro": 36,
+        "hora_pico": "8h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "YOPRO BARRA MORANGO",
+        "margem": 50,
+        "tem_custo": true,
+        "giro": 5,
+        "receita": 69.95,
+        "lucro": 35,
+        "hora_pico": "0h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "WRAP FRANGO",
+        "margem": 45,
+        "tem_custo": true,
+        "giro": 5,
+        "receita": 74.95,
+        "lucro": 34.05,
+        "hora_pico": "10h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "PRINGLES ORIGINAL",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 4,
+        "receita": 71.96,
+        "lucro": 33.2,
+        "hora_pico": "7h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "ITALAC L SEMI-1L",
+        "margem": 65,
+        "tem_custo": true,
+        "giro": 6,
+        "receita": 50.94,
+        "lucro": 33,
+        "hora_pico": "16h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      }
+    ],
     "estoque_baixo": [],
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 11745.93,
+        "transacoes": 1089
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 388.2,
+        "transacoes": 50
       }
     }
   },
   "mes": {
-    "faturamento": 0,
+    "faturamento": 128.89,
     "faturamento_delta": 0,
-    "ticket_medio": 0,
+    "ticket_medio": 11.72,
     "ticket_delta": 0,
-    "transacoes": 0,
+    "transacoes": 11,
     "transacoes_delta": 0,
-    "margem_media": 0,
+    "margem_media": 44.6,
     "margem_delta": 0,
     "por_hora": [
       0,
-      0,
+      11,
       0,
       0,
       0,
@@ -242,7 +679,7 @@
     ],
     "por_hora_soul": [
       0,
-      0,
+      10,
       0,
       0,
       0,
@@ -268,7 +705,7 @@
     ],
     "por_hora_mini": [
       0,
-      0,
+      1,
       0,
       0,
       0,
@@ -292,126 +729,831 @@
       0,
       0
     ],
-    "top_produtos": [],
-    "analise_margem": [],
+    "top_produtos": [
+      {
+        "nome": "KIBON FRUTTARE SORV PALITO LIMAO 58G",
+        "vendas": 3,
+        "receita": 32.97,
+        "margem": 36
+      },
+      {
+        "nome": "NESTLÉ WAFER  CHOCOLATE BRANCO-KITKAT-41,5G",
+        "vendas": 1,
+        "receita": 6.99,
+        "margem": 43
+      },
+      {
+        "nome": "NISSIN LÁMEN MACARRÃO INSTANTÂNEO COM TEMPERO SABOR GALINHA CAIPIRA-80G",
+        "vendas": 1,
+        "receita": 4.99,
+        "margem": 43
+      },
+      {
+        "nome": "KIBON ESK SORV M BBOM 92,1G",
+        "vendas": 1,
+        "receita": 21.99,
+        "margem": 38
+      },
+      {
+        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "vendas": 1,
+        "receita": 12.99,
+        "margem": 50
+      },
+      {
+        "nome": "LACTA DIAMANTE NEGRO",
+        "vendas": 1,
+        "receita": 12.99,
+        "margem": 46
+      },
+      {
+        "nome": "ISQUEIRO MINI",
+        "vendas": 1,
+        "receita": 7.99,
+        "margem": 64
+      },
+      {
+        "nome": "HOT POCKET CHEDDAR",
+        "vendas": 1,
+        "receita": 13.99,
+        "margem": 46
+      },
+      {
+        "nome": "HOT POCKET BURGUER",
+        "vendas": 1,
+        "receita": 13.99,
+        "margem": 57
+      }
+    ],
+    "analise_margem": [
+      {
+        "nome": "HOT POCKET BURGUER",
+        "margem": 57,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 13.99,
+        "lucro": 8,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "margem": 50,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 12.99,
+        "lucro": 6.54,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "HOT POCKET CHEDDAR",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 13.99,
+        "lucro": 6.5,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LACTA DIAMANTE NEGRO",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 12.99,
+        "lucro": 6,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "ISQUEIRO MINI",
+        "margem": 64,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 7.99,
+        "lucro": 5.08,
+        "hora_pico": "1h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "KIBON FRUTTARE SORV PALITO LIMAO 58G",
+        "margem": 36,
+        "tem_custo": true,
+        "giro": 3,
+        "receita": 32.97,
+        "lucro": 11.85,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      },
+      {
+        "nome": "KIBON ESK SORV M BBOM 92,1G",
+        "margem": 38,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 21.99,
+        "lucro": 8.41,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      },
+      {
+        "nome": "NESTLÉ WAFER  CHOCOLATE BRANCO-KITKAT-41,5G",
+        "margem": 43,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 6.99,
+        "lucro": 3,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      },
+      {
+        "nome": "NISSIN LÁMEN MACARRÃO INSTANTÂNEO COM TEMPERO SABOR GALINHA CAIPIRA-80G",
+        "margem": 43,
+        "tem_custo": true,
+        "giro": 1,
+        "receita": 4.99,
+        "lucro": 2.14,
+        "hora_pico": "1h",
+        "classificacao": "volume",
+        "cls_label": "📦 Volume"
+      }
+    ],
     "estoque_baixo": [],
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 123.9,
+        "transacoes": 10
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 4.99,
+        "transacoes": 1
       }
     }
   },
   "todas": {
-    "faturamento": 0,
+    "faturamento": 82033.48,
     "faturamento_delta": 0,
-    "ticket_medio": 0,
+    "ticket_medio": 10.25,
     "ticket_delta": 0,
-    "transacoes": 0,
+    "transacoes": 8000,
     "transacoes_delta": 0,
-    "margem_media": 0,
+    "margem_media": 44.8,
     "margem_delta": 0,
     "por_hora": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      272,
+      134,
+      76,
+      61,
+      49,
+      77,
+      81,
+      170,
+      212,
+      217,
+      193,
+      240,
+      340,
+      398,
+      338,
+      351,
+      420,
+      457,
+      595,
+      723,
+      729,
+      837,
+      611,
+      419
     ],
     "por_hora_soul": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      258,
+      113,
+      69,
+      59,
+      46,
+      73,
+      77,
+      157,
+      189,
+      201,
+      183,
+      212,
+      309,
+      370,
+      313,
+      322,
+      374,
+      439,
+      575,
+      689,
+      693,
+      794,
+      568,
+      385
     ],
     "por_hora_mini": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+      14,
+      21,
+      7,
+      2,
+      3,
+      4,
+      4,
+      13,
+      23,
+      16,
+      10,
+      28,
+      31,
+      28,
+      25,
+      29,
+      46,
+      18,
+      20,
+      34,
+      36,
+      43,
+      43,
+      34
     ],
-    "top_produtos": [],
-    "analise_margem": [],
+    "top_produtos": [
+      {
+        "nome": "FRESCOA ÁGUA MINERAL NATURAL SEM GÁS-1,5L",
+        "vendas": 661,
+        "receita": 3959.39,
+        "margem": 58
+      },
+      {
+        "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
+        "vendas": 311,
+        "receita": 2466.53,
+        "margem": 37
+      },
+      {
+        "nome": "COCA-COLA ZERO 600 ML",
+        "vendas": 276,
+        "receita": 2343.24,
+        "margem": 45
+      },
+      {
+        "nome": "NESTLÉ BEBIDA CREMOSA",
+        "vendas": 215,
+        "receita": 2145.85,
+        "margem": 60
+      },
+      {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "vendas": 200,
+        "receita": 1598,
+        "margem": 75
+      },
+      {
+        "nome": "CRYSTAL  ÁGUA MIN S GÁS-500ML",
+        "vendas": 186,
+        "receita": 742.14,
+        "margem": 40
+      },
+      {
+        "nome": "STELLA ARTOIS PURE GOLD 330 ML",
+        "vendas": 183,
+        "receita": 1736.67,
+        "margem": 32
+      },
+      {
+        "nome": "BUDWEISER CERVEJA 330ML",
+        "vendas": 181,
+        "receita": 1263.1,
+        "margem": 30
+      },
+      {
+        "nome": "CRYSTAL  ÁGUA MIN C GÁS-500ML",
+        "vendas": 160,
+        "receita": 638.4,
+        "margem": 30
+      },
+      {
+        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -2L",
+        "vendas": 103,
+        "receita": 1541.27,
+        "margem": 38
+      }
+    ],
+    "analise_margem": [
+      {
+        "nome": "FRESCOA ÁGUA MINERAL NATURAL SEM GÁS-1,5L",
+        "margem": 58,
+        "tem_custo": true,
+        "giro": 661,
+        "receita": 3959.39,
+        "lucro": 2313.5,
+        "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "NESTLÉ BEBIDA CREMOSA",
+        "margem": 60,
+        "tem_custo": true,
+        "giro": 215,
+        "receita": 2145.85,
+        "lucro": 1285.85,
+        "hora_pico": "9h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "margem": 75,
+        "tem_custo": true,
+        "giro": 200,
+        "receita": 1598,
+        "lucro": 1198,
+        "hora_pico": "8h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "COCA-COLA ZERO 600 ML",
+        "margem": 45,
+        "tem_custo": true,
+        "giro": 276,
+        "receita": 2343.24,
+        "lucro": 1048.8,
+        "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "HEREFORD",
+        "margem": 71,
+        "tem_custo": true,
+        "giro": 10,
+        "receita": 699.54,
+        "lucro": 499.64,
+        "hora_pico": "17h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "MONSTER ENERGY SEM AÇÚCARES",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 69,
+        "receita": 963.91,
+        "lucro": 447.1,
+        "hora_pico": "14h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "YOPRO BARRA MORANGO",
+        "margem": 50,
+        "tem_custo": true,
+        "giro": 61,
+        "receita": 853.39,
+        "lucro": 427,
+        "hora_pico": "17h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "margem": 50,
+        "tem_custo": true,
+        "giro": 56,
+        "receita": 727.44,
+        "lucro": 366.24,
+        "hora_pico": "16h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LAYS BATATA LISA FRITA-62G",
+        "margem": 57,
+        "tem_custo": true,
+        "giro": 38,
+        "receita": 531.62,
+        "lucro": 304,
+        "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "OVOS MANT",
+        "margem": 53,
+        "tem_custo": true,
+        "giro": 31,
+        "receita": 526.69,
+        "lucro": 279,
+        "hora_pico": "18h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
+        "margem": 47,
+        "tem_custo": true,
+        "giro": 97,
+        "receita": 580.43,
+        "lucro": 271,
+        "hora_pico": "18h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "RED BULL ENERGY DRINK COM TAURINA-250ML",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 45,
+        "receita": 562.05,
+        "lucro": 261,
+        "hora_pico": "14h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "LEITE ITALAC 3%",
+        "margem": 54,
+        "tem_custo": true,
+        "giro": 47,
+        "receita": 464.46,
+        "lucro": 248.73,
+        "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "DORITOs 120G",
+        "margem": 47,
+        "tem_custo": true,
+        "giro": 34,
+        "receita": 509.66,
+        "lucro": 238,
+        "hora_pico": "20h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "PIPOCA PRONTA CACAU 75G MV SELECAO",
+        "margem": 47,
+        "tem_custo": true,
+        "giro": 38,
+        "receita": 492.36,
+        "lucro": 230.16,
+        "hora_pico": "17h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "RED BULL",
+        "margem": 44,
+        "tem_custo": true,
+        "giro": 38,
+        "receita": 474.62,
+        "lucro": 209,
+        "hora_pico": "8h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "WRAP FRANGO",
+        "margem": 45,
+        "tem_custo": true,
+        "giro": 30,
+        "receita": 449.43,
+        "lucro": 204.03,
+        "hora_pico": "6h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "VISCONTI PÃO",
+        "margem": 65,
+        "tem_custo": true,
+        "giro": 24,
+        "receita": 311.76,
+        "lucro": 201.6,
+        "hora_pico": "20h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "ENERGY MONST GREN",
+        "margem": 50,
+        "tem_custo": true,
+        "giro": 28,
+        "receita": 391.72,
+        "lucro": 196,
+        "hora_pico": "14h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "PRINGLES ORIGINAL",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 23,
+        "receita": 413.77,
+        "lucro": 190.9,
+        "hora_pico": "16h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      }
+    ],
     "estoque_baixo": [],
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 77465.88,
+        "transacoes": 7468
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 0,
-        "transacoes": 0
+        "faturamento": 4567.6,
+        "transacoes": 532
       }
     }
   },
-  "total_buscado": 0,
-  "atualizado_em": "2026-07-01T08:30:20.096Z",
-  "atualizado_brt": "2026-07-01 05:30"
+  "categorias_mes": [
+    {
+      "nome": "Outros",
+      "lucro": 33.48,
+      "receita": 80.93,
+      "giro": 7,
+      "margem_media": 45,
+      "n_produtos": 5,
+      "top3": [
+        {
+          "nome": "KIBON FRUTTARE SORV PALITO LIMAO 58G",
+          "lucro": 11.85,
+          "margem": 36,
+          "giro": 3
+        },
+        {
+          "nome": "KIBON ESK SORV M BBOM 92,1G",
+          "lucro": 8.41,
+          "margem": 38,
+          "giro": 1
+        },
+        {
+          "nome": "LACTA DIAMANTE NEGRO",
+          "lucro": 6,
+          "margem": 46,
+          "giro": 1
+        }
+      ]
+    },
+    {
+      "nome": "Refeições",
+      "lucro": 21.04,
+      "receita": 40.97,
+      "giro": 3,
+      "margem_media": 51,
+      "n_produtos": 3,
+      "top3": [
+        {
+          "nome": "HOT POCKET BURGUER",
+          "lucro": 8,
+          "margem": 57,
+          "giro": 1
+        },
+        {
+          "nome": "SANDUÍCHE CREMOSO FRANGO",
+          "lucro": 6.54,
+          "margem": 50,
+          "giro": 1
+        },
+        {
+          "nome": "HOT POCKET CHEDDAR",
+          "lucro": 6.5,
+          "margem": 46,
+          "giro": 1
+        }
+      ]
+    },
+    {
+      "nome": "Laticínios/Café",
+      "lucro": 3,
+      "receita": 6.99,
+      "giro": 1,
+      "margem_media": 43,
+      "n_produtos": 1,
+      "top3": [
+        {
+          "nome": "NESTLÉ WAFER  CHOCOLATE BRANCO-KITKAT-41,5G",
+          "lucro": 3,
+          "margem": 43,
+          "giro": 1
+        }
+      ]
+    }
+  ],
+  "fabricantes_mes": [
+    {
+      "manufacturer_id": 3301713,
+      "nome": "KIBON",
+      "receita": 54.96,
+      "custo": 34.7,
+      "lucro": 20.26,
+      "margem": 37,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 4,
+      "produtos": [
+        {
+          "nome": "KIBON FRUTTARE SORV PALITO LIMAO 58G",
+          "qtd": 3,
+          "receita": 32.97,
+          "custo": 21.12,
+          "lucro": 11.85,
+          "margem": 36
+        },
+        {
+          "nome": "KIBON ESK SORV M BBOM 92,1G",
+          "qtd": 1,
+          "receita": 21.99,
+          "custo": 13.58,
+          "lucro": 8.41,
+          "margem": 38
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 3301728,
+      "nome": "SADIA",
+      "receita": 27.98,
+      "custo": 13.48,
+      "lucro": 14.5,
+      "margem": 52,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 2,
+      "produtos": [
+        {
+          "nome": "HOT POCKET CHEDDAR",
+          "qtd": 1,
+          "receita": 13.99,
+          "custo": 7.49,
+          "lucro": 6.5,
+          "margem": 46
+        },
+        {
+          "nome": "HOT POCKET BURGUER",
+          "qtd": 1,
+          "receita": 13.99,
+          "custo": 5.99,
+          "lucro": 8,
+          "margem": 57
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 3301622,
+      "nome": "MONDELEZ",
+      "receita": 12.99,
+      "custo": 6.99,
+      "lucro": 6,
+      "margem": 46,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 1,
+      "produtos": [
+        {
+          "nome": "LACTA DIAMANTE NEGRO",
+          "qtd": 1,
+          "receita": 12.99,
+          "custo": 6.99,
+          "lucro": 6,
+          "margem": 46
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 4209578,
+      "nome": "NORAC",
+      "receita": 12.99,
+      "custo": 6.45,
+      "lucro": 6.54,
+      "margem": 50,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 1,
+      "produtos": [
+        {
+          "nome": "SANDUÍCHE CREMOSO FRANGO",
+          "qtd": 1,
+          "receita": 12.99,
+          "custo": 6.45,
+          "lucro": 6.54,
+          "margem": 50
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 3316772,
+      "nome": "OUTROS",
+      "receita": 7.99,
+      "custo": 2.91,
+      "lucro": 5.08,
+      "margem": 64,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 1,
+      "produtos": [
+        {
+          "nome": "ISQUEIRO MINI",
+          "qtd": 1,
+          "receita": 7.99,
+          "custo": 2.91,
+          "lucro": 5.08,
+          "margem": 64
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 3301616,
+      "nome": "NESTLÉ",
+      "receita": 6.99,
+      "custo": 3.99,
+      "lucro": 3,
+      "margem": 43,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 1,
+      "produtos": [
+        {
+          "nome": "NESTLÉ WAFER  CHOCOLATE BRANCO-KITKAT-41,5G",
+          "qtd": 1,
+          "receita": 6.99,
+          "custo": 3.99,
+          "lucro": 3,
+          "margem": 43
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 3301627,
+      "nome": "NISSIN",
+      "receita": 4.99,
+      "custo": 2.85,
+      "lucro": 2.14,
+      "margem": 43,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 1,
+      "produtos": [
+        {
+          "nome": "NISSIN LÁMEN MACARRÃO INSTANTÂNEO COM TEMPERO SABOR GALINHA CAIPIRA-80G",
+          "qtd": 1,
+          "receita": 4.99,
+          "custo": 2.85,
+          "lucro": 2.14,
+          "margem": 43
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "tipo": "positivo",
+      "titulo": "🏆 Outros é sua categoria mais lucrativa",
+      "texto": "Gerou R$ 33.48 de lucro em junho com margem média de 45%. Garanta sempre o estoque desta categoria."
+    },
+    {
+      "tipo": "positivo",
+      "titulo": "⭐ HOT POCKET BURGUER é seu produto estrela",
+      "texto": "1 unidades vendidas, 57% de margem e R$ 8.00 de lucro no mês. Posição nobre na gôndola."
+    },
+    {
+      "tipo": "info",
+      "titulo": "⏰ Pico de vendas às 1h",
+      "texto": "O horário de maior movimento é 1h. Garanta reposição antes desse horário."
+    },
+    {
+      "tipo": "info",
+      "titulo": "🏪 Mercadinho 1 representa 96% do faturamento",
+      "texto": "Soul Brooklin: R$ 123.90 (10 transações) · Minimart: R$ 4.99 (1 transações)."
+    },
+    {
+      "tipo": "info",
+      "titulo": "🌙 100% das vendas são noturnas (22h-4h)",
+      "texto": "Perfil de condomínio com movimento noturno. Produtos de conveniência rápida têm alta demanda nesse período."
+    }
+  ],
+  "total_buscado": 8000,
+  "produtos_com_custo": 1148,
+  "total_fabricantes_mapeados": 316,
+  "atualizado_em": "2026-07-01T08:31:09.882Z",
+  "atualizado_brt": "2026-07-01 05:31"
 }
