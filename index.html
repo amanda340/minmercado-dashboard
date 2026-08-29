@@ -291,8 +291,20 @@ function demoData(periodo, instalacao) {
 
 // ── FETCH DATA.JSON DO GITHUB ────────────────────────────────
 const DATA_URL = 'https://raw.githubusercontent.com/Amanda340/minmercado-dashboard/main/data.json';
+const HISTORICO_URL = 'https://raw.githubusercontent.com/Amanda340/minmercado-dashboard/main/historico-mensal.json';
 
 let ULTIMO_ALL = null;
+
+async function fetchHistorico() {
+  try {
+    const res = await fetch(HISTORICO_URL + '?t=' + Date.now(), { signal: AbortSignal.timeout(8000) });
+    if (!res.ok) return [];
+    const arr = await res.json();
+    return Array.isArray(arr) ? arr : [];
+  } catch (e) {
+    return [];
+  }
+}
 
 async function fetchData() {
   const res = await fetch(DATA_URL + '?t=' + Date.now(), { signal: AbortSignal.timeout(8000) });
@@ -348,6 +360,8 @@ async function loadDashboard() {
     </div>`;
     return;
   }
+  const historico = await fetchHistorico();
+  const mesFechado = historico[0] || null;
   const ts = d.atualizado_brt ? 'Dados de ' + d.atualizado_brt : new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   document.getElementById('last-update').textContent = ts;
 
@@ -492,6 +506,38 @@ async function loadDashboard() {
           </div>`;
         }).join('');
       })()}
+    </div>
+
+    <div class="section-title">Mês fechado <span style="background:rgba(0,200,100,.12);border:1px solid rgba(0,200,100,.3);color:var(--green);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">🔒 dados congelados</span></div>
+    <div class="card" style="margin-bottom:20px">
+      ${mesFechado ? `
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:14px;font-weight:700;text-transform:capitalize">${mesFechado.mes_ano}</div>
+          <div style="font-size:10px;color:var(--muted)">Mercadinho 1: ${fmt(mesFechado.soul_brooklin_fat)} · Mercadinho 2: ${fmt(mesFechado.minimart_fat)}</div>
+        </div>
+        <div class="kpi-grid" style="margin-bottom:16px">
+          <div class="kpi" style="--kpi-color:var(--accent)"><div class="kpi-label">Faturamento</div><div class="kpi-value">${fmt(mesFechado.faturamento)}</div></div>
+          <div class="kpi" style="--kpi-color:var(--green)"><div class="kpi-label">Lucro</div><div class="kpi-value">${fmt(mesFechado.lucro)}</div></div>
+          <div class="kpi" style="--kpi-color:var(--blue)"><div class="kpi-label">Ticket médio</div><div class="kpi-value">${fmt(mesFechado.ticket_medio)}</div></div>
+          <div class="kpi" style="--kpi-color:var(--purple)"><div class="kpi-label">Margem média</div><div class="kpi-value">${(mesFechado.margem_media||0).toFixed(1)}%</div></div>
+        </div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:8px">Por fornecedor</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          ${(mesFechado.fabricantes||[]).map(f => `
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--bg3);border-radius:8px">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${f.nome}</div>
+                <div style="font-size:10px;color:var(--muted);margin-top:2px">${fmt(f.receita)} receita · ${f.giro} un</div>
+              </div>
+              ${f.margem != null ? `<span class="mpill ${mClass(f.margem)}">${f.margem}%</span>` : ''}
+              <span style="font-family:var(--mono);font-size:12px;color:var(--green);white-space:nowrap">${fmt(f.lucro)}</span>
+            </div>`).join('')}
+        </div>
+      ` : `
+        <div style="text-align:center;padding:24px;color:var(--muted);font-size:12px">
+          Ainda não há um mês fechado registrado.<br>O primeiro fechamento acontece automaticamente no dia 1 do próximo mês.
+        </div>
+      `}
     </div>
 
     <div class="section-title">Insights do período <span style="background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">📅 sempre baseado no mês atual</span></div>
