@@ -114,6 +114,10 @@
   .config-input{background:var(--bg3);border:1px solid var(--border);border-radius:8px;
     padding:8px 12px;color:var(--text);font-family:var(--mono);font-size:12px;width:100%}
   .config-input:focus{outline:none;border-color:var(--accent)}
+  .search-input{background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+    padding:9px 12px;color:var(--text);font-size:13px;width:100%;margin-bottom:12px}
+  .search-input:focus{outline:none;border-color:var(--accent)}
+  .search-input::placeholder{color:var(--muted)}
   .btn-save{background:var(--accent);border:none;color:#000;font-weight:700;
     padding:9px 20px;border-radius:8px;cursor:pointer;font-size:13px;font-family:var(--font)}
 
@@ -218,9 +222,18 @@ const INST_NOMES = { soul_brooklin: 'Mercadinho 1', minimart: 'Mercadinho 2', to
 
 let estado = {
   periodo:    localStorage.getItem('mm_periodo')    || 'hoje',
-  instalacao: localStorage.getItem('mm_instalacao') || 'todas'
+  instalacao: localStorage.getItem('mm_instalacao') || 'todas',
+  buscaFornecedor: '',
+  buscaProduto: ''
 };
 let refreshTimer = null;
+let LAST_D = null;
+let LAST_HISTORICO = [];
+
+function onBuscaInput(campo, valor) {
+  estado[campo] = valor;
+  renderDashboard();
+}
 
 function getWebhook() {
   return localStorage.getItem('mm_webhook') || WEBHOOK_DEFAULT;
@@ -342,7 +355,7 @@ const fmtN = n => Number(n).toLocaleString('pt-BR');
 const mClass = m => m >= 45 ? 'mh' : m >= 28 ? 'mm' : 'ml';
 const clsLabel = c => ({estrela:'⭐ Prioridade',bom:'✅ Bom',volume:'📦 Volume',revisar:'⚠️ Revisar'})[c] || c;
 
-// ── RENDER ───────────────────────────────────────────────────
+// ── FETCH + RENDER ──────────────────────────────────────────────
 async function loadDashboard() {
   const el = document.getElementById('dashboard-content');
   el.innerHTML = '<div class="spinner"><div class="spin"></div><span>Buscando dados…</span></div>';
@@ -361,6 +374,24 @@ async function loadDashboard() {
     return;
   }
   const historico = await fetchHistorico();
+  LAST_D = d;
+  LAST_HISTORICO = historico;
+  renderDashboard();
+}
+
+// Renderiza a partir dos últimos dados buscados (sem refazer fetch) —
+// usado tanto pelo loadDashboard quanto pelos campos de busca/filtro.
+function renderDashboard() {
+  const el = document.getElementById('dashboard-content');
+  const d = LAST_D;
+  const historico = LAST_HISTORICO;
+  if (!d) return;
+
+  // Preserva foco/cursor do campo de busca durante o re-render
+  const ativo = document.activeElement;
+  const focoId = ativo && ativo.id && ativo.id.startsWith('busca-') ? ativo.id : null;
+  const focoCursor = focoId ? ativo.selectionStart : null;
+
   const mesFechado = historico[0] || null;
   const ts = d.atualizado_brt ? 'Dados de ' + d.atualizado_brt : new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   document.getElementById('last-update').textContent = ts;
@@ -373,8 +404,10 @@ async function loadDashboard() {
                 : estado.instalacao === 'minimart'      ? (d.por_hora_mini || d.por_hora)
                 : d.por_hora;
   const maxHora = Math.max(...horaArr, 1);
-  const maxVenda = Math.max(...(d.top_produtos||[]).map(p=>p.vendas), 1);
-  const maxRec   = Math.max(...(d.top_produtos||[]).map(p=>p.receita), 1);
+  const termoProduto = (estado.buscaProduto||'').trim().toLowerCase();
+  const produtosFiltrados = (d.top_produtos||[]).filter(p => !termoProduto || p.nome.toLowerCase().includes(termoProduto));
+  const maxVenda = Math.max(...produtosFiltrados.map(p=>p.vendas), 1);
+  const maxRec   = Math.max(...produtosFiltrados.map(p=>p.receita), 1);
   const agora_h  = new Date().getHours();
 
   el.innerHTML = `
@@ -435,27 +468,29 @@ async function loadDashboard() {
       </div>
     </div>
 
+    <input class="search-input" id="busca-produto" type="text" placeholder="🔎 Buscar produto…"
+      value="${estado.buscaProduto||''}" oninput="onBuscaInput('buscaProduto', this.value)"/>
     <div class="two-col">
       <div class="card">
         <div class="card-title">Mais vendidos <span class="card-badge">unidades</span></div>
         <div class="bar-chart">
-          ${(d.top_produtos||[]).map((p,i)=>`
+          ${produtosFiltrados.length ? produtosFiltrados.map((p,i)=>`
             <div class="bar-row">
               <div class="bar-label" title="${p.nome}"><span class="rank">${i+1}.</span> ${p.nome}</div>
               <div class="bar-track"><div class="bar-fill" style="width:${(p.vendas/maxVenda*100).toFixed(0)}%;background:var(--blue)"></div></div>
               <div class="bar-val">${fmtN(p.vendas)}</div>
-            </div>`).join('')}
+            </div>`).join('') : `<div style="color:var(--muted);font-size:12px;text-align:center;padding:12px">Nenhum produto encontrado</div>`}
         </div>
       </div>
       <div class="card">
         <div class="card-title">Maior receita <span class="card-badge">R$</span></div>
         <div class="bar-chart">
-          ${[...(d.top_produtos||[])].sort((a,b)=>b.receita-a.receita).map((p,i)=>`
+          ${produtosFiltrados.length ? [...produtosFiltrados].sort((a,b)=>b.receita-a.receita).map((p,i)=>`
             <div class="bar-row">
               <div class="bar-label" title="${p.nome}"><span class="rank">${i+1}.</span> ${p.nome}</div>
               <div class="bar-track"><div class="bar-fill" style="width:${(p.receita/maxRec*100).toFixed(0)}%;background:var(--accent)"></div></div>
               <div class="bar-val">${fmt(p.receita)}</div>
-            </div>`).join('')}
+            </div>`).join('') : `<div style="color:var(--muted);font-size:12px;text-align:center;padding:12px">Nenhum produto encontrado</div>`}
         </div>
       </div>
     </div>
@@ -463,6 +498,8 @@ async function loadDashboard() {
 
 
     <div class="section-title">Fabricantes <span style="background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.3);color:var(--blue);font-size:10px;padding:2px 8px;border-radius:10px;text-transform:none;letter-spacing:0;font-weight:600">📅 mês atual</span></div>
+    <input class="search-input" id="busca-fornecedor" type="text" placeholder="🔎 Buscar fornecedor…"
+      value="${estado.buscaFornecedor||''}" oninput="onBuscaInput('buscaFornecedor', this.value)"/>
     <div class="fab-grid">
       ${(() => {
         const fabs = d.fabricantes_mes || [];
@@ -471,9 +508,15 @@ async function loadDashboard() {
         const pinnedNomes = {3301712:'Bacio di Latte', 3301713:'Kibon', 4099168:'Mundo Verde', 4523922:'Pudim', 3301677:'SR.OGRO', 4209578:'NORAC', 4209575:'Máquina Nestlé'};
         // Ordenação: tudo por lucro total desc; sem custo vai ao final; fixados só têm borda visual
         const temLucroReal = f => f.margem != null || f.margem_parcial != null;
+        const termoFornecedor = (estado.buscaFornecedor||'').trim().toLowerCase();
+        const fabsFiltrados = !termoFornecedor ? fabs : fabs.filter(f => {
+          const n = pinnedNomes[f.manufacturer_id] || f.nome || f.nome_aprox || ('Fabricante '+f.manufacturer_id);
+          return n.toLowerCase().includes(termoFornecedor);
+        });
+        if (!fabsFiltrados.length) return `<div style="color:var(--muted);font-size:12px;text-align:center;padding:16px">Nenhum fornecedor encontrado</div>`;
         const sorted = [
-          ...fabs.filter(f=>temLucroReal(f)).sort((a,b)=>(b.lucro||0)-(a.lucro||0)),
-          ...fabs.filter(f=>!temLucroReal(f)).sort((a,b)=>b.receita-a.receita)
+          ...fabsFiltrados.filter(f=>temLucroReal(f)).sort((a,b)=>(b.lucro||0)-(a.lucro||0)),
+          ...fabsFiltrados.filter(f=>!temLucroReal(f)).sort((a,b)=>b.receita-a.receita)
         ];
         return sorted.map(f => {
           const isPinned = PINNED.includes(f.manufacturer_id);
@@ -523,7 +566,11 @@ async function loadDashboard() {
         </div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:8px">Por fornecedor</div>
         <div style="display:flex;flex-direction:column;gap:6px">
-          ${(mesFechado.fabricantes||[]).map(f => `
+          ${(() => {
+            const termo = (estado.buscaFornecedor||'').trim().toLowerCase();
+            const lista = (mesFechado.fabricantes||[]).filter(f => !termo || f.nome.toLowerCase().includes(termo));
+            if (!lista.length) return `<div style="color:var(--muted);font-size:12px;text-align:center;padding:12px">Nenhum fornecedor encontrado</div>`;
+            return lista.map(f => `
             <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--bg3);border-radius:8px">
               <div style="flex:1;min-width:0">
                 <div style="font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${f.nome}</div>
@@ -531,7 +578,8 @@ async function loadDashboard() {
               </div>
               ${f.margem != null ? `<span class="mpill ${mClass(f.margem)}">${f.margem}%</span>` : ''}
               <span style="font-family:var(--mono);font-size:12px;color:var(--green);white-space:nowrap">${fmt(f.lucro)}</span>
-            </div>`).join('')}
+            </div>`).join('');
+          })()}
         </div>
       ` : `
         <div style="text-align:center;padding:24px;color:var(--muted);font-size:12px">
@@ -627,6 +675,15 @@ async function loadDashboard() {
       </p>
     </div>
   `;
+
+  // Restaura foco/cursor do campo de busca (o innerHTML acima o desfocou)
+  if (focoId) {
+    const campo = document.getElementById(focoId);
+    if (campo) {
+      campo.focus();
+      if (focoCursor != null) campo.setSelectionRange(focoCursor, focoCursor);
+    }
+  }
 }
 
 // ── INIT ─────────────────────────────────────────────────────
