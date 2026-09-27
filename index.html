@@ -449,7 +449,7 @@ function renderDashboard() {
       <div class="section-title">Consolidado da madrugada <span class="card-badge">${fmtDia(inicioD)} 12h → ${fmtDia(fimD)} 6h</span></div>
       <div class="card" style="margin-bottom:20px">
         <div class="card-title">
-          <span>${jn.total_unidades||0} unidades vendidas <span style="color:var(--muted);font-weight:400">(${jn.total_transacoes||0} vendas)</span></span>
+          <span><span style="color:var(--accent);font-weight:700">${jn.total_unidades||0} unidades vendidas</span> <span style="color:var(--muted);font-weight:400">(${jn.total_transacoes||0} vendas)</span></span>
           <button id="btn-copiar-jn" onclick="copiarJanelaNoturna(this)" style="background:var(--accent);border:none;color:#000;font-weight:700;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px">📋 Copiar</button>
         </div>
         <div style="max-height:260px;overflow-y:auto">${rows}</div>
