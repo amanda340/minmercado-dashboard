@@ -241,8 +241,8 @@ function copiarJanelaNoturna(btn) {
   const fmtDia = dt => dt.toLocaleDateString('pt-BR');
   const inicioD = new Date(jn.inicio);
   const fimD = new Date(jn.fim);
-  const linhas = (jn.itens||[]).map(i => `- ${i.nome}: ${i.qtd}`).join('\n') || '(nenhuma venda)';
-  const texto = `📦 Vendas ${fmtDia(inicioD)} 12h → ${fmtDia(fimD)} 6h\n\n${linhas}\n\nTotal: ${jn.total_unidades||0} unidades (${jn.total_transacoes||0} vendas)`;
+  const linhas = (jn.itens||[]).map(i => `- *${i.nome}*: ${i.qtd}`).join('\n') || '(nenhuma venda)';
+  const texto = `📦 *Vendas ${fmtDia(inicioD)} 12h → ${fmtDia(fimD)} 6h*\n\n${linhas}\n\n*Total: ${jn.total_unidades||0} unidades* (${jn.total_transacoes||0} vendas)`;
   const marcarCopiado = () => {
     const original = btn.textContent;
     btn.textContent = '✅ Copiado!';
@@ -439,10 +439,11 @@ function renderDashboard() {
       const inicioD = new Date(jn.inicio);
       const fimD = new Date(jn.fim);
       const fmtDia = dt => dt.toLocaleDateString('pt-BR');
-      const rows = (jn.itens||[]).length ? jn.itens.map(i => `
+      const jnCores = ['var(--accent)','var(--green)','var(--blue)','var(--purple)','#e85d30'];
+      const rows = (jn.itens||[]).length ? jn.itens.map((i,idx) => `
         <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px">
-          <span>${i.nome}</span>
-          <span style="font-family:var(--mono);font-weight:600">${i.qtd}</span>
+          <span style="font-weight:700;color:${jnCores[idx % jnCores.length]}">${i.nome}</span>
+          <span style="font-family:var(--mono);font-weight:700">${i.qtd}</span>
         </div>`).join('') : `<div style="color:var(--muted);font-size:12px;text-align:center;padding:12px">Nenhuma venda nessa janela</div>`;
       return `
       <div class="section-title">Consolidado da madrugada <span class="card-badge">${fmtDia(inicioD)} 12h → ${fmtDia(fimD)} 6h</span></div>
