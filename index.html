@@ -439,10 +439,9 @@ function renderDashboard() {
       const inicioD = new Date(jn.inicio);
       const fimD = new Date(jn.fim);
       const fmtDia = dt => dt.toLocaleDateString('pt-BR');
-      const jnCores = ['var(--accent)','var(--green)','var(--blue)','var(--purple)','#e85d30'];
-      const rows = (jn.itens||[]).length ? jn.itens.map((i,idx) => `
+      const rows = (jn.itens||[]).length ? jn.itens.map(i => `
         <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px">
-          <span style="font-weight:700;color:${jnCores[idx % jnCores.length]}">${i.nome}</span>
+          <span style="font-weight:700">${i.nome}</span>
           <span style="font-family:var(--mono);font-weight:700">${i.qtd}</span>
         </div>`).join('') : `<div style="color:var(--muted);font-size:12px;text-align:center;padding:12px">Nenhuma venda nessa janela</div>`;
       return `
