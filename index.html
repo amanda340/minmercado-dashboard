@@ -235,6 +235,26 @@ function onBuscaInput(campo, valor) {
   renderDashboard();
 }
 
+function copiarJanelaNoturna(btn) {
+  const jn = window.JANELA_NOTURNA;
+  if (!jn) return;
+  const fmtDia = dt => dt.toLocaleDateString('pt-BR');
+  const inicioD = new Date(jn.inicio);
+  const fimD = new Date(jn.fim);
+  const linhas = (jn.itens||[]).map(i => `- ${i.nome}: ${i.qtd}`).join('\n') || '(nenhuma venda)';
+  const texto = `📦 Vendas ${fmtDia(inicioD)} 12h → ${fmtDia(fimD)} 6h\n\n${linhas}\n\nTotal: ${jn.total_unidades||0} unidades (${jn.total_transacoes||0} vendas)`;
+  const marcarCopiado = () => {
+    const original = btn.textContent;
+    btn.textContent = '✅ Copiado!';
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(texto).then(marcarCopiado).catch(() => alert(texto));
+  } else {
+    alert(texto);
+  }
+}
+
 function getWebhook() {
   return localStorage.getItem('mm_webhook') || WEBHOOK_DEFAULT;
 }
@@ -336,6 +356,7 @@ async function fetchData() {
   dados.insights       = all.insights || [];
   dados.categorias_mes = all.categorias_mes || [];
   dados.fabricantes_mes = all.fabricantes_mes || [];
+  dados.janela_noturna = all.janela_noturna || null;
   // Filtra instalação se necessário
   if (estado.instalacao !== 'todas' && dados.instalacoes) {
     const inst = dados.instalacoes[estado.instalacao] || {};
@@ -411,6 +432,28 @@ function renderDashboard() {
   const agora_h  = new Date().getHours();
 
   el.innerHTML = `
+    ${(() => {
+      const jn = d.janela_noturna;
+      if (!jn) return '';
+      window.JANELA_NOTURNA = jn;
+      const inicioD = new Date(jn.inicio);
+      const fimD = new Date(jn.fim);
+      const fmtDia = dt => dt.toLocaleDateString('pt-BR');
+      const rows = (jn.itens||[]).length ? jn.itens.map(i => `
+        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px">
+          <span>${i.nome}</span>
+          <span style="font-family:var(--mono);font-weight:600">${i.qtd}</span>
+        </div>`).join('') : `<div style="color:var(--muted);font-size:12px;text-align:center;padding:12px">Nenhuma venda nessa janela</div>`;
+      return `
+      <div class="section-title">Consolidado da madrugada <span class="card-badge">${fmtDia(inicioD)} 12h → ${fmtDia(fimD)} 6h</span></div>
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-title">
+          <span>${jn.total_unidades||0} unidades vendidas <span style="color:var(--muted);font-weight:400">(${jn.total_transacoes||0} vendas)</span></span>
+          <button id="btn-copiar-jn" onclick="copiarJanelaNoturna(this)" style="background:var(--accent);border:none;color:#000;font-weight:700;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px">📋 Copiar</button>
+        </div>
+        <div style="max-height:260px;overflow-y:auto">${rows}</div>
+      </div>`;
+    })()}
     ${showSplit ? `
     <div class="inst-split" style="margin-bottom:16px">
       <div class="inst-card">
