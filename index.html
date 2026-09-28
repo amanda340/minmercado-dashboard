@@ -238,11 +238,12 @@ function onBuscaInput(campo, valor) {
 function copiarJanelaNoturna(btn) {
   const jn = window.JANELA_NOTURNA;
   if (!jn) return;
-  const fmtDia = dt => dt.toLocaleDateString('pt-BR');
+  const fmtDia = dt => dt.toLocaleDateString('pt-BR', {timeZone:'America/Sao_Paulo'});
+  const fmtHoraBRT = dt => parseInt(dt.toLocaleString('en-GB', {timeZone:'America/Sao_Paulo', hour:'2-digit', hour12:false}), 10);
   const inicioD = new Date(jn.inicio);
   const fimD = new Date(jn.fim);
-  const hIni = inicioD.getHours();
-  const hFim = fimD.getHours();
+  const hIni = fmtHoraBRT(inicioD);
+  const hFim = fmtHoraBRT(fimD);
   const linhas = (jn.itens||[]).map(i => `- *${i.nome}*: ${i.qtd}`).join('\n') || '(nenhuma venda)';
   const texto = `📦 *Vendas ${fmtDia(inicioD)} ${hIni}h → ${fmtDia(fimD)} ${hFim}h*\n\n${linhas}\n\n*Total: ${jn.total_unidades||0} unidades* (${jn.total_transacoes||0} vendas)`;
   const marcarCopiado = () => {
@@ -440,9 +441,10 @@ function renderDashboard() {
       window.JANELA_NOTURNA = jn;
       const inicioD = new Date(jn.inicio);
       const fimD = new Date(jn.fim);
-      const fmtDia = dt => dt.toLocaleDateString('pt-BR');
-      const hIni = inicioD.getHours();
-      const hFim = fimD.getHours();
+      const fmtDia = dt => dt.toLocaleDateString('pt-BR', {timeZone:'America/Sao_Paulo'});
+      const fmtHoraBRT = dt => parseInt(dt.toLocaleString('en-GB', {timeZone:'America/Sao_Paulo', hour:'2-digit', hour12:false}), 10);
+      const hIni = fmtHoraBRT(inicioD);
+      const hFim = fmtHoraBRT(fimD);
       const rows = (jn.itens||[]).length ? jn.itens.map(i => `
         <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px">
           <span style="font-weight:700">${i.nome}</span>
