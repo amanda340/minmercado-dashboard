@@ -1,13 +1,13 @@
 {
   "hoje": {
-    "faturamento": 537.24,
-    "faturamento_delta": -66.9,
-    "ticket_medio": 11.43,
-    "ticket_delta": 14.6,
-    "transacoes": 47,
-    "transacoes_delta": -71.2,
-    "margem_media": 47.6,
-    "margem_delta": 6.5,
+    "faturamento": 924.39,
+    "faturamento_delta": -43.1,
+    "ticket_medio": 11.27,
+    "ticket_delta": 13,
+    "transacoes": 82,
+    "transacoes_delta": -49.7,
+    "margem_media": 46.8,
+    "margem_delta": 4.7,
     "por_hora": [
       6,
       0,
@@ -23,12 +23,12 @@
       5,
       11,
       5,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1,
+      4,
+      4,
+      4,
+      19,
+      3,
       0,
       0,
       0,
@@ -49,12 +49,12 @@
       5,
       11,
       4,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      1,
+      4,
+      4,
+      4,
+      19,
+      2,
       0,
       0,
       0,
@@ -80,7 +80,7 @@
       0,
       0,
       0,
-      0,
+      1,
       0,
       0,
       0,
@@ -88,16 +88,40 @@
     ],
     "top_produtos": [
       {
+        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
+        "vendas": 3,
+        "receita": 17.97,
+        "margem": 47
+      },
+      {
         "nome": "FRESCOA ÁGUA MINERAL NATURAL SEM GÁS-1,5L",
         "vendas": 3,
         "receita": 17.97,
         "margem": 58
       },
       {
-        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
+        "nome": "BUDWEISER CERVEJA 330ML",
+        "vendas": 3,
+        "receita": 20.97,
+        "margem": 30
+      },
+      {
+        "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
+        "vendas": 3,
+        "receita": 23.97,
+        "margem": 38
+      },
+      {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "vendas": 3,
+        "receita": 23.97,
+        "margem": 75
+      },
+      {
+        "nome": "GUARANÁ REFRIGERANTE DE GUARANÁ ANTARCTICA  ZERO-350ML",
         "vendas": 2,
         "receita": 11.98,
-        "margem": 47
+        "margem": 45
       },
       {
         "nome": "ITALAC L SEMI-1L",
@@ -106,46 +130,22 @@
         "margem": 65
       },
       {
+        "nome": "CRYSTAL  ÁGUA MIN C GÁS-500ML",
+        "vendas": 2,
+        "receita": 7.98,
+        "margem": 30
+      },
+      {
         "nome": "CRYSTAL  ÁGUA MIN S GÁS-500ML",
         "vendas": 2,
         "receita": 7.98,
         "margem": 40
       },
       {
-        "nome": "LIVUP ESCONDIDINHO",
+        "nome": "COCA-COLA ZERO 600 ML",
         "vendas": 2,
-        "receita": 65.98,
-        "margem": 55
-      },
-      {
-        "nome": "BAUDUCCO BOLINHO SABOR GOTAS DE CHOCOLATE-40G",
-        "vendas": 2,
-        "receita": 7.98,
-        "margem": 63
-      },
-      {
-        "nome": "TRAKINAS BISCOITO RECHEADO SABOR CHOCOLATE FORTIFICADO COM CÁLCIO-126G",
-        "vendas": 1,
-        "receita": 4.99,
-        "margem": 35
-      },
-      {
-        "nome": "NESTLÉ WAFER  CHOCOLATE  LEITE- KITKAT-41,5G",
-        "vendas": 1,
-        "receita": 7.49,
-        "margem": 47
-      },
-      {
-        "nome": "TRIDENT GOMA DE MASCAR SABOR HORTELÃ SEM AÇÚCAR-8G",
-        "vendas": 1,
-        "receita": 4.59,
-        "margem": 57
-      },
-      {
-        "nome": "COCA-COLA REFRIGERANTE SABOR ORIGINAL -2L",
-        "vendas": 1,
-        "receita": 13.99,
-        "margem": 36
+        "receita": 16.98,
+        "margem": 45
       }
     ],
     "analise_margem": [
@@ -168,6 +168,50 @@
         "receita": 32.99,
         "lucro": 18,
         "hora_pico": "10h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "OVOS MANT",
+        "margem": 53,
+        "tem_custo": true,
+        "giro": 2,
+        "receita": 33.98,
+        "lucro": 18,
+        "hora_pico": "9h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "margem": 75,
+        "tem_custo": true,
+        "giro": 3,
+        "receita": 23.97,
+        "lucro": 17.97,
+        "hora_pico": "9h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "NESTLÉ BEBIDA CREMOSA",
+        "margem": 64,
+        "tem_custo": true,
+        "giro": 2,
+        "receita": 21.98,
+        "lucro": 13.98,
+        "hora_pico": "16h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "MONSTER ENERGY SEM AÇÚCARES",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 2,
+        "receita": 27.98,
+        "lucro": 13,
+        "hora_pico": "13h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -205,13 +249,57 @@
         "cls_label": "⭐ Prioridade"
       },
       {
-        "nome": "OVOS MANT",
-        "margem": 53,
+        "nome": "KITCHENS PAPEL TOALHA KITCHENS",
+        "margem": 50,
+        "tem_custo": true,
+        "giro": 2,
+        "receita": 19.98,
+        "lucro": 10,
+        "hora_pico": "14h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "BIS XTRA",
+        "margem": 60,
+        "tem_custo": true,
+        "giro": 2,
+        "receita": 14.98,
+        "lucro": 9,
+        "hora_pico": "18h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
+        "margem": 47,
+        "tem_custo": true,
+        "giro": 3,
+        "receita": 17.97,
+        "lucro": 8.4,
+        "hora_pico": "0h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "COCA-COLA ZERO 600 ML",
+        "margem": 45,
+        "tem_custo": true,
+        "giro": 2,
+        "receita": 16.98,
+        "lucro": 7.6,
+        "hora_pico": "15h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "margem": 54,
         "tem_custo": true,
         "giro": 1,
-        "receita": 16.99,
-        "lucro": 9,
-        "hora_pico": "9h",
+        "receita": 13.99,
+        "lucro": 7.54,
+        "hora_pico": "18h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -238,35 +326,13 @@
         "cls_label": "⭐ Prioridade"
       },
       {
-        "nome": "MONSTER ENERGY SEM AÇÚCARES",
-        "margem": 46,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 13.99,
-        "lucro": 6.5,
-        "hora_pico": "13h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
-        "margem": 75,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 7.99,
-        "lucro": 5.99,
-        "hora_pico": "9h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
-        "margem": 47,
+        "nome": "GUARANÁ REFRIGERANTE DE GUARANÁ ANTARCTICA  ZERO-350ML",
+        "margem": 45,
         "tem_custo": true,
         "giro": 2,
         "receita": 11.98,
-        "lucro": 5.6,
-        "hora_pico": "0h",
+        "lucro": 5.4,
+        "hora_pico": "13h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -293,79 +359,13 @@
         "cls_label": "⭐ Prioridade"
       },
       {
-        "nome": "NESTLÉ WAFER  CHOCOLATE  LEITE- KITKAT-41,5G",
-        "margem": 47,
+        "nome": "MANDIOCA CHIPS COM SAL 40G MV SELECAO",
+        "margem": 45,
         "tem_custo": true,
         "giro": 1,
-        "receita": 7.49,
-        "lucro": 3.5,
-        "hora_pico": "3h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "NIVEA SABONETE LEITE",
-        "margem": 54,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 5.19,
-        "lucro": 2.8,
-        "hora_pico": "7h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "NUTRY BARRA DE CEREAL CASTANHA",
-        "margem": 69,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 3.99,
-        "lucro": 2.74,
-        "hora_pico": "9h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "TRIDENT GOMA DE MASCAR SABOR HORTELÃ SEM AÇÚCAR-8G",
-        "margem": 57,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 4.59,
-        "lucro": 2.63,
-        "hora_pico": "13h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "IPÊ  NEUTRO DESENGORDURANTE-500ML",
-        "margem": 50,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 4.99,
-        "lucro": 2.5,
-        "hora_pico": "8h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "LIMPOL NEUTRO",
-        "margem": 51,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 4.69,
-        "lucro": 2.4,
-        "hora_pico": "8h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "BAUDUCCO ROLL",
-        "margem": 50,
-        "tem_custo": true,
-        "giro": 1,
-        "receita": 3.99,
-        "lucro": 2,
-        "hora_pico": "11h",
+        "receita": 10.9,
+        "lucro": 4.91,
+        "hora_pico": "0h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       }
@@ -374,22 +374,22 @@
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 490.37,
-        "transacoes": 43
+        "faturamento": 860.53,
+        "transacoes": 77
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 46.87,
-        "transacoes": 4
+        "faturamento": 63.86,
+        "transacoes": 5
       }
     }
   },
   "semana": {
-    "faturamento": 14017.35,
+    "faturamento": 14404.5,
     "faturamento_delta": 0,
-    "ticket_medio": 10.69,
+    "ticket_medio": 10.7,
     "ticket_delta": 0,
-    "transacoes": 1311,
+    "transacoes": 1346,
     "transacoes_delta": 0,
     "margem_media": 44.8,
     "margem_delta": 0,
@@ -408,12 +408,12 @@
       35,
       56,
       65,
-      24,
-      70,
-      64,
+      25,
+      74,
       68,
-      78,
-      115,
+      72,
+      97,
+      118,
       121,
       140,
       126,
@@ -434,12 +434,12 @@
       31,
       54,
       59,
-      24,
-      69,
-      62,
-      63,
+      25,
       73,
-      111,
+      66,
+      67,
+      92,
+      113,
       107,
       132,
       106,
@@ -465,7 +465,7 @@
       2,
       5,
       5,
-      4,
+      5,
       14,
       8,
       20,
@@ -485,16 +485,34 @@
         "margem": 32
       },
       {
+        "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
+        "vendas": 38,
+        "receita": 303.62,
+        "margem": 38
+      },
+      {
         "nome": "CRYSTAL  ÁGUA MIN C GÁS-500ML",
-        "vendas": 37,
-        "receita": 147.63,
+        "vendas": 38,
+        "receita": 151.62,
         "margem": 30
       },
       {
-        "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
-        "vendas": 35,
-        "receita": 279.65,
-        "margem": 38
+        "nome": "BUDWEISER CERVEJA 330ML",
+        "vendas": 29,
+        "receita": 202.71,
+        "margem": 30
+      },
+      {
+        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
+        "vendas": 28,
+        "receita": 167.72,
+        "margem": 47
+      },
+      {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "vendas": 28,
+        "receita": 223.72,
+        "margem": 75
       },
       {
         "nome": "FRESCA ÁGUA 510ML",
@@ -503,33 +521,15 @@
         "margem": 65
       },
       {
-        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
-        "vendas": 27,
-        "receita": 161.73,
-        "margem": 47
-      },
-      {
-        "nome": "BUDWEISER CERVEJA 330ML",
-        "vendas": 26,
-        "receita": 181.74,
-        "margem": 30
-      },
-      {
-        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
-        "vendas": 26,
-        "receita": 207.74,
-        "margem": 75
-      },
-      {
         "nome": "TODDYNHO",
-        "vendas": 25,
-        "receita": 136.15,
+        "vendas": 26,
+        "receita": 141.64,
         "margem": 45
       },
       {
         "nome": "COCA-COLA ZERO 600 ML",
-        "vendas": 23,
-        "receita": 195.27,
+        "vendas": 25,
+        "receita": 212.25,
         "margem": 45
       }
     ],
@@ -549,9 +549,9 @@
         "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
         "margem": 75,
         "tem_custo": true,
-        "giro": 26,
-        "receita": 207.74,
-        "lucro": 155.74,
+        "giro": 28,
+        "receita": 223.72,
+        "lucro": 167.72,
         "hora_pico": "6h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -560,9 +560,9 @@
         "nome": "NESTLÉ BEBIDA CREMOSA",
         "margem": 64,
         "tem_custo": true,
-        "giro": 20,
-        "receita": 219.8,
-        "lucro": 139.8,
+        "giro": 22,
+        "receita": 241.78,
+        "lucro": 153.78,
         "hora_pico": "7h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -571,10 +571,21 @@
         "nome": "COCA-COLA ZERO 600 ML",
         "margem": 45,
         "tem_custo": true,
-        "giro": 23,
-        "receita": 195.27,
-        "lucro": 87.4,
-        "hora_pico": "21h",
+        "giro": 25,
+        "receita": 212.25,
+        "lucro": 95,
+        "hora_pico": "16h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
+        "margem": 47,
+        "tem_custo": true,
+        "giro": 28,
+        "receita": 167.72,
+        "lucro": 78.4,
+        "hora_pico": "20h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -586,17 +597,6 @@
         "receita": 168.87,
         "lucro": 78,
         "hora_pico": "6h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
-        "margem": 47,
-        "tem_custo": true,
-        "giro": 27,
-        "receita": 161.73,
-        "lucro": 75.6,
-        "hora_pico": "20h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -623,13 +623,24 @@
         "cls_label": "⭐ Prioridade"
       },
       {
-        "nome": "MONSTER ZERO",
-        "margem": 50,
+        "nome": "MONSTER ENERGY SEM AÇÚCARES",
+        "margem": 46,
         "tem_custo": true,
-        "giro": 9,
-        "receita": 125.91,
-        "lucro": 63,
-        "hora_pico": "6h",
+        "giro": 10,
+        "receita": 139.9,
+        "lucro": 65,
+        "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "CREPE PEITO DE PERU COM CATUPIRY",
+        "margem": 44,
+        "tem_custo": true,
+        "giro": 6,
+        "receita": 143.94,
+        "lucro": 63.96,
+        "hora_pico": "21h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -637,21 +648,21 @@
         "nome": "TODDYNHO",
         "margem": 45,
         "tem_custo": true,
-        "giro": 25,
-        "receita": 136.15,
-        "lucro": 61.4,
+        "giro": 26,
+        "receita": 141.64,
+        "lucro": 63.9,
         "hora_pico": "9h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
       {
-        "nome": "MONSTER ENERGY SEM AÇÚCARES",
-        "margem": 46,
+        "nome": "MONSTER ZERO",
+        "margem": 50,
         "tem_custo": true,
         "giro": 9,
         "receita": 125.91,
-        "lucro": 58.5,
-        "hora_pico": "21h",
+        "lucro": 63,
+        "hora_pico": "6h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -674,6 +685,17 @@
         "receita": 107.94,
         "lucro": 54,
         "hora_pico": "0h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "margem": 53,
+        "tem_custo": true,
+        "giro": 7,
+        "receita": 96.53,
+        "lucro": 51.38,
+        "hora_pico": "10h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -722,35 +744,13 @@
         "cls_label": "⭐ Prioridade"
       },
       {
-        "nome": "SANDUÍCHE CREMOSO FRANGO",
+        "nome": "OVOS MANT",
         "margem": 53,
         "tem_custo": true,
-        "giro": 6,
-        "receita": 82.54,
-        "lucro": 43.84,
-        "hora_pico": "10h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "ELMA CHIPS OVINHOS AMENDOIM-145",
-        "margem": 66,
-        "tem_custo": true,
-        "giro": 6,
-        "receita": 65.94,
-        "lucro": 43.8,
-        "hora_pico": "18h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "CREPE ESCONDIDINHO DE CARNE SECA",
-        "margem": 44,
-        "tem_custo": true,
-        "giro": 4,
-        "receita": 95.96,
-        "lucro": 42.64,
-        "hora_pico": "19h",
+        "giro": 5,
+        "receita": 84.95,
+        "lucro": 45,
+        "hora_pico": "7h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       }
@@ -759,22 +759,22 @@
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 13117.46,
-        "transacoes": 1208
+        "faturamento": 13487.62,
+        "transacoes": 1242
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 899.89,
-        "transacoes": 103
+        "faturamento": 916.88,
+        "transacoes": 104
       }
     }
   },
   "mes": {
-    "faturamento": 18111.69,
+    "faturamento": 18498.84,
     "faturamento_delta": 0,
-    "ticket_medio": 10.54,
+    "ticket_medio": 10.55,
     "ticket_delta": 0,
-    "transacoes": 1718,
+    "transacoes": 1753,
     "transacoes_delta": 0,
     "margem_media": 44.8,
     "margem_delta": 0,
@@ -793,12 +793,12 @@
       58,
       75,
       82,
-      43,
-      94,
-      94,
-      74,
-      113,
-      143,
+      44,
+      98,
+      98,
+      78,
+      132,
+      146,
       148,
       171,
       145,
@@ -819,12 +819,12 @@
       48,
       73,
       76,
-      41,
-      86,
+      42,
       90,
-      69,
-      108,
-      139,
+      94,
+      73,
+      127,
+      141,
       129,
       160,
       121,
@@ -850,7 +850,7 @@
       4,
       5,
       5,
-      4,
+      5,
       19,
       11,
       24,
@@ -871,20 +871,20 @@
       },
       {
         "nome": "CRYSTAL  ÁGUA MIN C GÁS-500ML",
-        "vendas": 48,
-        "receita": 191.52,
+        "vendas": 49,
+        "receita": 195.51,
         "margem": 30
       },
       {
         "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
-        "vendas": 45,
-        "receita": 359.55,
+        "vendas": 48,
+        "receita": 383.52,
         "margem": 38
       },
       {
         "nome": "COCA-COLA ZERO 600 ML",
-        "vendas": 41,
-        "receita": 348.09,
+        "vendas": 43,
+        "receita": 365.07,
         "margem": 45
       },
       {
@@ -894,27 +894,27 @@
         "margem": 65
       },
       {
+        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+        "vendas": 35,
+        "receita": 279.65,
+        "margem": 75
+      },
+      {
         "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
-        "vendas": 33,
-        "receita": 197.67,
+        "vendas": 34,
+        "receita": 203.66,
         "margem": 47
       },
       {
         "nome": "TODDYNHO",
-        "vendas": 33,
-        "receita": 180.07,
+        "vendas": 34,
+        "receita": 185.56,
         "margem": 45
       },
       {
-        "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
-        "vendas": 33,
-        "receita": 263.67,
-        "margem": 75
-      },
-      {
         "nome": "BUDWEISER CERVEJA 330ML",
-        "vendas": 28,
-        "receita": 195.72,
+        "vendas": 31,
+        "receita": 216.69,
         "margem": 30
       }
     ],
@@ -934,9 +934,9 @@
         "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
         "margem": 75,
         "tem_custo": true,
-        "giro": 33,
-        "receita": 263.67,
-        "lucro": 197.67,
+        "giro": 35,
+        "receita": 279.65,
+        "lucro": 209.65,
         "hora_pico": "6h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -945,9 +945,9 @@
         "nome": "NESTLÉ BEBIDA CREMOSA",
         "margem": 64,
         "tem_custo": true,
-        "giro": 27,
-        "receita": 296.73,
-        "lucro": 188.73,
+        "giro": 29,
+        "receita": 318.71,
+        "lucro": 202.71,
         "hora_pico": "10h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -956,10 +956,10 @@
         "nome": "COCA-COLA ZERO 600 ML",
         "margem": 45,
         "tem_custo": true,
-        "giro": 41,
-        "receita": 348.09,
-        "lucro": 155.8,
-        "hora_pico": "21h",
+        "giro": 43,
+        "receita": 365.07,
+        "lucro": 163.4,
+        "hora_pico": "16h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -989,21 +989,10 @@
         "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
         "margem": 47,
         "tem_custo": true,
-        "giro": 33,
-        "receita": 197.67,
-        "lucro": 92.4,
+        "giro": 34,
+        "receita": 203.66,
+        "lucro": 95.2,
         "hora_pico": "20h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "TODDYNHO",
-        "margem": 45,
-        "tem_custo": true,
-        "giro": 33,
-        "receita": 180.07,
-        "lucro": 81.4,
-        "hora_pico": "9h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -1011,10 +1000,21 @@
         "nome": "MONSTER ENERGY SEM AÇÚCARES",
         "margem": 46,
         "tem_custo": true,
-        "giro": 12,
-        "receita": 167.88,
-        "lucro": 78,
+        "giro": 13,
+        "receita": 181.87,
+        "lucro": 84.5,
         "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "TODDYNHO",
+        "margem": 45,
+        "tem_custo": true,
+        "giro": 34,
+        "receita": 185.56,
+        "lucro": 83.9,
+        "hora_pico": "9h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -1074,6 +1074,17 @@
         "cls_label": "⭐ Prioridade"
       },
       {
+        "nome": "CREPE PEITO DE PERU COM CATUPIRY",
+        "margem": 44,
+        "tem_custo": true,
+        "giro": 6,
+        "receita": 143.94,
+        "lucro": 63.96,
+        "hora_pico": "21h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
         "nome": "KING EGGS",
         "margem": 53,
         "tem_custo": true,
@@ -1127,35 +1138,24 @@
         "hora_pico": "12h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
-      },
-      {
-        "nome": "PRINGLES CEBOLA",
-        "margem": 50,
-        "tem_custo": true,
-        "giro": 6,
-        "receita": 107.94,
-        "lucro": 54,
-        "hora_pico": "0h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
       }
     ],
     "estoque_baixo": [],
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 16933.17,
-        "transacoes": 1578
+        "faturamento": 17303.33,
+        "transacoes": 1612
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 1178.52,
-        "transacoes": 140
+        "faturamento": 1195.51,
+        "transacoes": 141
       }
     }
   },
   "todas": {
-    "faturamento": 82233.78,
+    "faturamento": 82265.58,
     "faturamento_delta": 0,
     "ticket_medio": 10.28,
     "ticket_delta": 0,
@@ -1178,13 +1178,13 @@
       250,
       293,
       381,
-      297,
-      353,
-      402,
-      394,
-      548,
-      711,
-      717,
+      298,
+      357,
+      406,
+      398,
+      557,
+      708,
+      698,
       705,
       657,
       533
@@ -1204,13 +1204,13 @@
       226,
       274,
       347,
-      281,
-      324,
-      360,
-      346,
-      516,
-      643,
-      619,
+      282,
+      328,
+      364,
+      350,
+      525,
+      641,
+      604,
       633,
       575,
       469
@@ -1235,8 +1235,8 @@
       42,
       48,
       32,
-      68,
-      98,
+      67,
+      94,
       72,
       82,
       64
@@ -1244,14 +1244,14 @@
     "top_produtos": [
       {
         "nome": "FRESCOA ÁGUA MINERAL NATURAL SEM GÁS-1,5L",
-        "vendas": 791,
-        "receita": 4738.09,
+        "vendas": 789,
+        "receita": 4726.11,
         "margem": 58
       },
       {
         "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
-        "vendas": 245,
-        "receita": 1957.55,
+        "vendas": 248,
+        "receita": 1981.52,
         "margem": 38
       },
       {
@@ -1262,14 +1262,14 @@
       },
       {
         "nome": "COCA-COLA ZERO 600 ML",
-        "vendas": 205,
-        "receita": 1740.45,
+        "vendas": 204,
+        "receita": 1731.96,
         "margem": 45
       },
       {
         "nome": "CRYSTAL  ÁGUA MIN S GÁS-500ML",
-        "vendas": 183,
-        "receita": 730.17,
+        "vendas": 182,
+        "receita": 726.18,
         "margem": 40
       },
       {
@@ -1280,26 +1280,26 @@
       },
       {
         "nome": "BUDWEISER CERVEJA 330ML",
-        "vendas": 170,
-        "receita": 1188.3,
+        "vendas": 173,
+        "receita": 1209.27,
         "margem": 30
       },
       {
         "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
-        "vendas": 157,
-        "receita": 940.43,
+        "vendas": 158,
+        "receita": 946.42,
         "margem": 47
       },
       {
         "nome": "NESTLÉ BEBIDA CREMOSA",
-        "vendas": 141,
-        "receita": 1549.59,
+        "vendas": 143,
+        "receita": 1571.57,
         "margem": 64
       },
       {
         "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
-        "vendas": 131,
-        "receita": 1046.69,
+        "vendas": 133,
+        "receita": 1062.67,
         "margem": 75
       }
     ],
@@ -1308,9 +1308,9 @@
         "nome": "FRESCOA ÁGUA MINERAL NATURAL SEM GÁS-1,5L",
         "margem": 58,
         "tem_custo": true,
-        "giro": 791,
-        "receita": 4738.09,
-        "lucro": 2768.5,
+        "giro": 789,
+        "receita": 4726.11,
+        "lucro": 2761.5,
         "hora_pico": "22h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -1319,9 +1319,9 @@
         "nome": "NESTLÉ BEBIDA CREMOSA",
         "margem": 64,
         "tem_custo": true,
-        "giro": 141,
-        "receita": 1549.59,
-        "lucro": 985.59,
+        "giro": 143,
+        "receita": 1571.57,
+        "lucro": 999.57,
         "hora_pico": "9h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -1330,9 +1330,9 @@
         "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
         "margem": 75,
         "tem_custo": true,
-        "giro": 131,
-        "receita": 1046.69,
-        "lucro": 784.69,
+        "giro": 133,
+        "receita": 1062.67,
+        "lucro": 796.67,
         "hora_pico": "9h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -1341,9 +1341,9 @@
         "nome": "COCA-COLA ZERO 600 ML",
         "margem": 45,
         "tem_custo": true,
-        "giro": 205,
-        "receita": 1740.45,
-        "lucro": 779,
+        "giro": 204,
+        "receita": 1731.96,
+        "lucro": 775.2,
         "hora_pico": "21h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -1363,9 +1363,9 @@
         "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
         "margem": 47,
         "tem_custo": true,
-        "giro": 157,
-        "receita": 940.43,
-        "lucro": 439.6,
+        "giro": 158,
+        "receita": 946.42,
+        "lucro": 442.4,
         "hora_pico": "21h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -1374,9 +1374,9 @@
         "nome": "MONSTER ENERGY SEM AÇÚCARES",
         "margem": 46,
         "tem_custo": true,
-        "giro": 62,
-        "receita": 867.38,
-        "lucro": 403,
+        "giro": 63,
+        "receita": 881.37,
+        "lucro": 409.5,
         "hora_pico": "14h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -1448,23 +1448,12 @@
         "cls_label": "⭐ Prioridade"
       },
       {
-        "nome": "NESTLÉ WAFER  CHOCOLATE  LEITE- KITKAT-41,5G",
-        "margem": 46,
-        "tem_custo": true,
-        "giro": 76,
-        "receita": 561.74,
-        "lucro": 258.5,
-        "hora_pico": "21h",
-        "classificacao": "estrela",
-        "cls_label": "⭐ Prioridade"
-      },
-      {
         "nome": "TODDYNHO",
         "margem": 45,
         "tem_custo": true,
-        "giro": 103,
-        "receita": 564.37,
-        "lucro": 256.4,
+        "giro": 104,
+        "receita": 569.86,
+        "lucro": 258.9,
         "hora_pico": "21h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
@@ -1477,6 +1466,17 @@
         "receita": 503.64,
         "lucro": 252,
         "hora_pico": "23h",
+        "classificacao": "estrela",
+        "cls_label": "⭐ Prioridade"
+      },
+      {
+        "nome": "NESTLÉ WAFER  CHOCOLATE  LEITE- KITKAT-41,5G",
+        "margem": 46,
+        "tem_custo": true,
+        "giro": 73,
+        "receita": 539.57,
+        "lucro": 248.3,
+        "hora_pico": "21h",
         "classificacao": "estrela",
         "cls_label": "⭐ Prioridade"
       },
@@ -1529,13 +1529,13 @@
     "instalacoes": {
       "soul_brooklin": {
         "nome": "Mercadinho 1",
-        "faturamento": 75506.18,
-        "transacoes": 7199
+        "faturamento": 75598.43,
+        "transacoes": 7204
       },
       "minimart": {
         "nome": "Mercadinho 2",
-        "faturamento": 6727.6,
-        "transacoes": 801
+        "faturamento": 6667.15,
+        "transacoes": 796
       }
     }
   },
@@ -1570,17 +1570,17 @@
     },
     {
       "nome": "Outros",
-      "lucro": 416.24,
-      "receita": 892.73,
-      "giro": 67,
-      "margem_media": 47,
-      "n_produtos": 6,
+      "lucro": 482.7,
+      "receita": 1042.16,
+      "giro": 74,
+      "margem_media": 46,
+      "n_produtos": 7,
       "top3": [
         {
           "nome": "TODDYNHO",
-          "lucro": 81.4,
+          "lucro": 83.9,
           "margem": 45,
-          "giro": 33
+          "giro": 34
         },
         {
           "nome": "CREPE FRANGO COM CATUPIRY",
@@ -1598,39 +1598,39 @@
     },
     {
       "nome": "Laticínios/Café",
-      "lucro": 386.4,
-      "receita": 560.4,
-      "giro": 60,
+      "lucro": 412.36,
+      "receita": 598.36,
+      "giro": 64,
       "margem_media": 70,
       "n_produtos": 2,
       "top3": [
         {
           "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
-          "lucro": 197.67,
+          "lucro": 209.65,
           "margem": 75,
-          "giro": 33
+          "giro": 35
         },
         {
           "nome": "NESTLÉ BEBIDA CREMOSA",
-          "lucro": 188.73,
+          "lucro": 202.71,
           "margem": 64,
-          "giro": 27
+          "giro": 29
         }
       ]
     },
     {
       "nome": "Energéticos",
-      "lucro": 273,
-      "receita": 572.58,
-      "giro": 42,
+      "lucro": 279.5,
+      "receita": 586.57,
+      "giro": 43,
       "margem_media": 48,
       "n_produtos": 4,
       "top3": [
         {
           "nome": "MONSTER ENERGY SEM AÇÚCARES",
-          "lucro": 78,
+          "lucro": 84.5,
           "margem": 46,
-          "giro": 12
+          "giro": 13
         },
         {
           "nome": "ENERGY MONST GREN",
@@ -1648,23 +1648,23 @@
     },
     {
       "nome": "Refrigerantes",
-      "lucro": 248.2,
-      "receita": 545.76,
-      "giro": 74,
+      "lucro": 258.6,
+      "receita": 568.73,
+      "giro": 77,
       "margem_media": 46,
       "n_produtos": 2,
       "top3": [
         {
           "nome": "COCA-COLA ZERO 600 ML",
-          "lucro": 155.8,
+          "lucro": 163.4,
           "margem": 45,
-          "giro": 41
+          "giro": 43
         },
         {
           "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
-          "lucro": 92.4,
+          "lucro": 95.2,
           "margem": 47,
-          "giro": 33
+          "giro": 34
         }
       ]
     },
@@ -1699,36 +1699,60 @@
           "giro": 9
         }
       ]
-    },
-    {
-      "nome": "Snacks",
-      "lucro": 54,
-      "receita": 107.94,
-      "giro": 6,
-      "margem_media": 50,
-      "n_produtos": 1,
-      "top3": [
-        {
-          "nome": "PRINGLES CEBOLA",
-          "lucro": 54,
-          "margem": 50,
-          "giro": 6
-        }
-      ]
     }
   ],
   "fabricantes_mes": [
     {
       "manufacturer_id": 3301668,
       "nome": "FEMSA",
-      "receita": 1510.26,
-      "custo": 916.7,
-      "lucro": 593.56,
+      "receita": 1566.19,
+      "custo": 951.78,
+      "lucro": 614.41,
       "margem": 39,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 174,
+      "giro": 181,
       "produtos": [
+        {
+          "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -2L",
+          "qtd": 26,
+          "receita": 389.74,
+          "custo": 240.24,
+          "lucro": 149.5,
+          "margem": 38
+        },
+        {
+          "nome": "BUDWEISER CERVEJA 330ML",
+          "qtd": 31,
+          "receita": 216.69,
+          "custo": 151.59,
+          "lucro": 65.1,
+          "margem": 30
+        },
+        {
+          "nome": "GUARANÁ REFRIGERANTE DE GUARANÁ ANTARCTICA  ZERO-350ML",
+          "qtd": 12,
+          "receita": 71.88,
+          "custo": 39.48,
+          "lucro": 32.4,
+          "margem": 45
+        },
+        {
+          "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
+          "qtd": 34,
+          "receita": 203.66,
+          "custo": 108.46,
+          "lucro": 95.2,
+          "margem": 47
+        },
+        {
+          "nome": "FANTA LARANJA-600ML",
+          "qtd": 8,
+          "receita": 63.92,
+          "custo": 37.52,
+          "lucro": 26.4,
+          "margem": 41
+        },
         {
           "nome": "FANTA LARANJA 2L",
           "qtd": 1,
@@ -1738,36 +1762,12 @@
           "margem": 39
         },
         {
-          "nome": "GUARANÁ REFRIGERANTE DE GUARANÁ ANTARCTICA  ZERO-350ML",
-          "qtd": 11,
-          "receita": 65.89,
-          "custo": 36.19,
-          "lucro": 29.7,
-          "margem": 45
-        },
-        {
-          "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -350ML",
-          "qtd": 33,
-          "receita": 197.67,
-          "custo": 105.27,
-          "lucro": 92.4,
-          "margem": 47
-        },
-        {
           "nome": "COCA-COLA REFRIGERANTE SABOR ORIGINAL -2L",
           "qtd": 17,
           "receita": 237.83,
           "custo": 152.83,
           "lucro": 85,
           "margem": 36
-        },
-        {
-          "nome": "BUDWEISER CERVEJA 330ML",
-          "qtd": 28,
-          "receita": 195.72,
-          "custo": 136.92,
-          "lucro": 58.8,
-          "margem": 30
         },
         {
           "nome": "COCA-COLA REFRIGERANTE DE SABOR ORIGINAL-600ML",
@@ -1786,14 +1786,6 @@
           "margem": 46
         },
         {
-          "nome": "COCA-COLA REFRIGERANTE ZERO AÇÚCAR -2L",
-          "qtd": 25,
-          "receita": 374.75,
-          "custo": 231,
-          "lucro": 143.75,
-          "margem": 38
-        },
-        {
           "nome": "COCA-COLA REFRIGERANTE SABOR ORIGINAL -350ML",
           "qtd": 6,
           "receita": 32.94,
@@ -1808,14 +1800,6 @@
           "custo": 67.35,
           "lucro": 52.5,
           "margem": 44
-        },
-        {
-          "nome": "FANTA LARANJA-600ML",
-          "qtd": 7,
-          "receita": 55.93,
-          "custo": 32.83,
-          "lucro": 23.1,
-          "margem": 41
         },
         {
           "nome": "REFRIGERANTE DE GUARANÁ ANTARCTICA -350ML",
@@ -1875,21 +1859,29 @@
     {
       "manufacturer_id": 3301635,
       "nome": "PEPSICO",
-      "receita": 864.24,
-      "custo": 451.39,
-      "lucro": 412.85,
+      "receita": 882.72,
+      "custo": 462.57,
+      "lucro": 420.15,
       "margem": 48,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 86,
+      "giro": 88,
       "produtos": [
         {
           "nome": "TODDYNHO",
-          "qtd": 33,
-          "receita": 180.07,
-          "custo": 98.67,
-          "lucro": 81.4,
+          "qtd": 34,
+          "receita": 185.56,
+          "custo": 101.66,
+          "lucro": 83.9,
           "margem": 45
+        },
+        {
+          "nome": "RUFFLES BATATA FRITA ONDULADA ORIGINAL-68G",
+          "qtd": 3,
+          "receita": 38.97,
+          "custo": 24.57,
+          "lucro": 14.4,
+          "margem": 37
         },
         {
           "nome": "DORITOs 120G",
@@ -1898,14 +1890,6 @@
           "custo": 39.95,
           "lucro": 35,
           "margem": 47
-        },
-        {
-          "nome": "RUFFLES BATATA FRITA ONDULADA ORIGINAL-68G",
-          "qtd": 2,
-          "receita": 25.98,
-          "custo": 16.38,
-          "lucro": 9.6,
-          "margem": 37
         },
         {
           "nome": "RUFFLES CHURRASCO",
@@ -2165,14 +2149,22 @@
     {
       "manufacturer_id": 3301616,
       "nome": "NESTLÉ",
-      "receita": 775.63,
-      "custo": 454.5,
-      "lucro": 321.13,
+      "receita": 803.61,
+      "custo": 470.48,
+      "lucro": 333.13,
       "margem": 41,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 77,
+      "giro": 79,
       "produtos": [
+        {
+          "nome": "NESTLE CHCO TRIO",
+          "qtd": 10,
+          "receita": 139.9,
+          "custo": 79.9,
+          "lucro": 60,
+          "margem": 43
+        },
         {
           "nome": "LAKA DIAMANTE",
           "qtd": 5,
@@ -2228,14 +2220,6 @@
           "custo": 39.9,
           "lucro": 34.1,
           "margem": 46
-        },
-        {
-          "nome": "NESTLE CHCO TRIO",
-          "qtd": 8,
-          "receita": 111.92,
-          "custo": 63.92,
-          "lucro": 48,
-          "margem": 43
         },
         {
           "nome": "PASSATEMPO MORANGO-130G",
@@ -2300,6 +2284,67 @@
           "custo": 4.98,
           "lucro": 5,
           "margem": 50
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 6738405,
+      "nome": "EZE ",
+      "receita": 647.73,
+      "custo": 359.91,
+      "lucro": 287.82,
+      "margem": 44,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 27,
+      "produtos": [
+        {
+          "nome": "CREPE PEITO DE PERU COM CATUPIRY",
+          "qtd": 6,
+          "receita": 143.94,
+          "custo": 79.98,
+          "lucro": 63.96,
+          "margem": 44
+        },
+        {
+          "nome": "CREPE NUTELLA",
+          "qtd": 4,
+          "receita": 95.96,
+          "custo": 53.32,
+          "lucro": 42.64,
+          "margem": 44
+        },
+        {
+          "nome": "CREPE CALABRESA COM CATUPIRY",
+          "qtd": 3,
+          "receita": 71.97,
+          "custo": 39.99,
+          "lucro": 31.98,
+          "margem": 44
+        },
+        {
+          "nome": "CREPE DOCE DE LEITE",
+          "qtd": 1,
+          "receita": 23.99,
+          "custo": 13.33,
+          "lucro": 10.66,
+          "margem": 44
+        },
+        {
+          "nome": "CREPE FRANGO COM CATUPIRY",
+          "qtd": 7,
+          "receita": 167.93,
+          "custo": 93.31,
+          "lucro": 74.62,
+          "margem": 44
+        },
+        {
+          "nome": "CREPE ESCONDIDINHO DE CARNE SECA",
+          "qtd": 6,
+          "receita": 143.94,
+          "custo": 79.98,
+          "lucro": 63.96,
+          "margem": 44
         }
       ]
     },
@@ -2471,14 +2516,22 @@
     {
       "manufacturer_id": 3301712,
       "nome": "BACIO DI LATTE",
-      "receita": 590.8,
-      "custo": 381.17,
-      "lucro": 209.63,
+      "receita": 613.79,
+      "custo": 397,
+      "lucro": 216.79,
       "margem": 35,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 20,
+      "giro": 21,
       "produtos": [
+        {
+          "nome": "PICOLE PISTACCHIO COM COBERTURA 70G",
+          "qtd": 5,
+          "receita": 114.95,
+          "custo": 79.15,
+          "lucro": 35.8,
+          "margem": 31
+        },
         {
           "nome": "MINI BOMBOM FRAMBOESA",
           "qtd": 1,
@@ -2510,14 +2563,6 @@
           "custo": 100.52,
           "lucro": 53.41,
           "margem": 35
-        },
-        {
-          "nome": "PICOLE PISTACCHIO COM COBERTURA 70G",
-          "qtd": 4,
-          "receita": 91.96,
-          "custo": 63.32,
-          "lucro": 28.64,
-          "margem": 31
         },
         {
           "nome": "CREME MARACUJA",
@@ -2562,77 +2607,53 @@
       ]
     },
     {
-      "manufacturer_id": 6738405,
-      "nome": "EZE ",
-      "receita": 575.76,
-      "custo": 319.92,
-      "lucro": 255.84,
-      "margem": 44,
+      "manufacturer_id": 4209575,
+      "nome": "MÁQUINA NESTLÉ",
+      "receita": 598.36,
+      "custo": 186,
+      "lucro": 412.36,
+      "margem": 69,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 24,
+      "giro": 64,
       "produtos": [
         {
-          "nome": "CREPE PEITO DE PERU COM CATUPIRY",
-          "qtd": 4,
-          "receita": 95.96,
-          "custo": 53.32,
-          "lucro": 42.64,
-          "margem": 44
+          "nome": "NESTLÉ BEBIDA CREMOSA",
+          "qtd": 29,
+          "receita": 318.71,
+          "custo": 116,
+          "lucro": 202.71,
+          "margem": 64
         },
         {
-          "nome": "CREPE NUTELLA",
-          "qtd": 3,
-          "receita": 71.97,
-          "custo": 39.99,
-          "lucro": 31.98,
-          "margem": 44
-        },
-        {
-          "nome": "CREPE CALABRESA COM CATUPIRY",
-          "qtd": 3,
-          "receita": 71.97,
-          "custo": 39.99,
-          "lucro": 31.98,
-          "margem": 44
-        },
-        {
-          "nome": "CREPE DOCE DE LEITE",
-          "qtd": 1,
-          "receita": 23.99,
-          "custo": 13.33,
-          "lucro": 10.66,
-          "margem": 44
-        },
-        {
-          "nome": "CREPE FRANGO COM CATUPIRY",
-          "qtd": 7,
-          "receita": 167.93,
-          "custo": 93.31,
-          "lucro": 74.62,
-          "margem": 44
-        },
-        {
-          "nome": "CREPE ESCONDIDINHO DE CARNE SECA",
-          "qtd": 6,
-          "receita": 143.94,
-          "custo": 79.98,
-          "lucro": 63.96,
-          "margem": 44
+          "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
+          "qtd": 35,
+          "receita": 279.65,
+          "custo": 70,
+          "lucro": 209.65,
+          "margem": 75
         }
       ]
     },
     {
       "manufacturer_id": 4209578,
       "nome": "NORAC",
-      "receita": 573.21,
-      "custo": 315.1,
-      "lucro": 258.11,
+      "receita": 587.2,
+      "custo": 321.55,
+      "lucro": 265.65,
       "margem": 45,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 41,
+      "giro": 42,
       "produtos": [
+        {
+          "nome": "SANDUÍCHE CREMOSO FRANGO",
+          "qtd": 7,
+          "receita": 96.53,
+          "custo": 45.15,
+          "lucro": 51.38,
+          "margem": 53
+        },
         {
           "nome": "SANDUÍCHE PEITO DE PERU CREMOSO",
           "qtd": 9,
@@ -2682,14 +2703,6 @@
           "margem": 39
         },
         {
-          "nome": "SANDUÍCHE CREMOSO FRANGO",
-          "qtd": 6,
-          "receita": 82.54,
-          "custo": 38.7,
-          "lucro": 43.84,
-          "margem": 53
-        },
-        {
           "nome": "MADELEINE TRAD RECHEADA CHOCOLATE",
           "qtd": 3,
           "receita": 41.97,
@@ -2704,35 +2717,6 @@
           "custo": 6.45,
           "lucro": 7.54,
           "margem": 54
-        }
-      ]
-    },
-    {
-      "manufacturer_id": 4209575,
-      "nome": "MÁQUINA NESTLÉ",
-      "receita": 560.4,
-      "custo": 174,
-      "lucro": 386.4,
-      "margem": 69,
-      "margem_parcial": null,
-      "pct_com_custo": 100,
-      "giro": 60,
-      "produtos": [
-        {
-          "nome": "NESTLÉ CAFÉ TORRADO EM GRÃOS",
-          "qtd": 33,
-          "receita": 263.67,
-          "custo": 66,
-          "lucro": 197.67,
-          "margem": 75
-        },
-        {
-          "nome": "NESTLÉ BEBIDA CREMOSA",
-          "qtd": 27,
-          "receita": 296.73,
-          "custo": 108,
-          "lucro": 188.73,
-          "margem": 64
         }
       ]
     },
@@ -2938,14 +2922,22 @@
     {
       "manufacturer_id": 3301622,
       "nome": "MONDELEZ",
-      "receita": 470.52,
-      "custo": 227.24,
-      "lucro": 243.28,
+      "receita": 485.5,
+      "custo": 233.22,
+      "lucro": 252.28,
       "margem": 52,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 78,
+      "giro": 80,
       "produtos": [
+        {
+          "nome": "BIS XTRA",
+          "qtd": 4,
+          "receita": 29.86,
+          "custo": 11.96,
+          "lucro": 17.9,
+          "margem": 60
+        },
         {
           "nome": "TRIDENT GOMA DE MASCAR SABOR HORTELÃ SEM AÇÚCAR-8G",
           "qtd": 14,
@@ -2977,14 +2969,6 @@
           "custo": 46.88,
           "lucro": 41.04,
           "margem": 47
-        },
-        {
-          "nome": "BIS XTRA",
-          "qtd": 2,
-          "receita": 14.88,
-          "custo": 5.98,
-          "lucro": 8.9,
-          "margem": 60
         },
         {
           "nome": "TRIDENT GOMA DE MASCAR SABOR MENTA SEM AÇÚCAR-8G",
@@ -3055,20 +3039,20 @@
     {
       "manufacturer_id": 4100823,
       "nome": "MONSTER",
-      "receita": 447.68,
-      "custo": 229.68,
-      "lucro": 218,
+      "receita": 461.67,
+      "custo": 237.17,
+      "lucro": 224.5,
       "margem": 49,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 32,
+      "giro": 33,
       "produtos": [
         {
           "nome": "MONSTER ENERGY SEM AÇÚCARES",
-          "qtd": 12,
-          "receita": 167.88,
-          "custo": 89.88,
-          "lucro": 78,
+          "qtd": 13,
+          "receita": 181.87,
+          "custo": 97.37,
+          "lucro": 84.5,
           "margem": 46
         },
         {
@@ -3244,22 +3228,43 @@
       ]
     },
     {
+      "manufacturer_id": 3301674,
+      "nome": "HEINEKEN",
+      "receita": 383.52,
+      "custo": 239.52,
+      "lucro": 144,
+      "margem": 38,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 48,
+      "produtos": [
+        {
+          "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
+          "qtd": 48,
+          "receita": 383.52,
+          "custo": 239.52,
+          "lucro": 144,
+          "margem": 38
+        }
+      ]
+    },
+    {
       "manufacturer_id": 3301667,
       "nome": "GUARA VITON",
-      "receita": 361.56,
-      "custo": 197.66,
-      "lucro": 163.9,
+      "receita": 378.54,
+      "custo": 207.04,
+      "lucro": 171.5,
       "margem": 45,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 44,
+      "giro": 46,
       "produtos": [
         {
           "nome": "COCA-COLA ZERO 600 ML",
-          "qtd": 41,
-          "receita": 348.09,
-          "custo": 192.29,
-          "lucro": 155.8,
+          "qtd": 43,
+          "receita": 365.07,
+          "custo": 201.67,
+          "lucro": 163.4,
           "margem": 45
         },
         {
@@ -3269,27 +3274,6 @@
           "custo": 5.37,
           "lucro": 8.1,
           "margem": 60
-        }
-      ]
-    },
-    {
-      "manufacturer_id": 3301674,
-      "nome": "HEINEKEN",
-      "receita": 359.55,
-      "custo": 224.55,
-      "lucro": 135,
-      "margem": 38,
-      "margem_parcial": null,
-      "pct_com_custo": 100,
-      "giro": 45,
-      "produtos": [
-        {
-          "nome": "HEINEKEN CERVEJA PURO MALTE COM ÁLCOOL-350ML",
-          "qtd": 45,
-          "receita": 359.55,
-          "custo": 224.55,
-          "lucro": 135,
-          "margem": 38
         }
       ]
     },
@@ -3341,20 +3325,20 @@
     {
       "manufacturer_id": 6272147,
       "nome": "DO CHEF",
-      "receita": 335.79,
-      "custo": 210,
-      "lucro": 125.79,
+      "receita": 351.78,
+      "custo": 220,
+      "lucro": 131.78,
       "margem": 37,
       "margem_parcial": null,
       "pct_com_custo": 100,
-      "giro": 21,
+      "giro": 22,
       "produtos": [
         {
           "nome": "BISCOITO DE POLVILHO 80G SABOR PARMESAO",
-          "qtd": 16,
-          "receita": 255.84,
-          "custo": 160,
-          "lucro": 95.84,
+          "qtd": 17,
+          "receita": 271.83,
+          "custo": 170,
+          "lucro": 101.83,
           "margem": 37
         },
         {
@@ -3590,6 +3574,27 @@
       ]
     },
     {
+      "manufacturer_id": 3312059,
+      "nome": "CRYSTAL",
+      "receita": 195.51,
+      "custo": 136.71,
+      "lucro": 58.8,
+      "margem": 30,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 49,
+      "produtos": [
+        {
+          "nome": "CRYSTAL  ÁGUA MIN C GÁS-500ML",
+          "qtd": 49,
+          "receita": 195.51,
+          "custo": 136.71,
+          "lucro": 58.8,
+          "margem": 30
+        }
+      ]
+    },
+    {
       "manufacturer_id": 3301627,
       "nome": "NISSIN",
       "receita": 194.73,
@@ -3660,27 +3665,6 @@
           "custo": 23.98,
           "lucro": 16,
           "margem": 40
-        }
-      ]
-    },
-    {
-      "manufacturer_id": 3312059,
-      "nome": "CRYSTAL",
-      "receita": 191.52,
-      "custo": 133.92,
-      "lucro": 57.6,
-      "margem": 30,
-      "margem_parcial": null,
-      "pct_com_custo": 100,
-      "giro": 48,
-      "produtos": [
-        {
-          "nome": "CRYSTAL  ÁGUA MIN C GÁS-500ML",
-          "qtd": 48,
-          "receita": 191.52,
-          "custo": 133.92,
-          "lucro": 57.6,
-          "margem": 30
         }
       ]
     },
@@ -4136,6 +4120,56 @@
       ]
     },
     {
+      "manufacturer_id": 3306881,
+      "nome": "ELMA ",
+      "receita": 91.89,
+      "custo": 43.89,
+      "lucro": 48,
+      "margem": 52,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 11,
+      "produtos": [
+        {
+          "nome": "FANDANGOS QUEIJO",
+          "qtd": 7,
+          "receita": 55.93,
+          "custo": 27.93,
+          "lucro": 28,
+          "margem": 50
+        },
+        {
+          "nome": "BACONZITOS 35 G",
+          "qtd": 4,
+          "receita": 35.96,
+          "custo": 15.96,
+          "lucro": 20,
+          "margem": 56
+        }
+      ]
+    },
+    {
+      "manufacturer_id": 3426963,
+      "nome": "OREO",
+      "receita": 84.95,
+      "custo": 39.95,
+      "lucro": 45,
+      "margem": 53,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 5,
+      "produtos": [
+        {
+          "nome": "OVOS MANT",
+          "qtd": 5,
+          "receita": 84.95,
+          "custo": 39.95,
+          "lucro": 45,
+          "margem": 53
+        }
+      ]
+    },
+    {
       "manufacturer_id": 3610831,
       "nome": "SEMPRE LIVRE",
       "receita": 83.93,
@@ -4161,35 +4195,6 @@
           "custo": 19.98,
           "lucro": 14,
           "margem": 41
-        }
-      ]
-    },
-    {
-      "manufacturer_id": 3306881,
-      "nome": "ELMA ",
-      "receita": 83.9,
-      "custo": 39.9,
-      "lucro": 44,
-      "margem": 52,
-      "margem_parcial": null,
-      "pct_com_custo": 100,
-      "giro": 10,
-      "produtos": [
-        {
-          "nome": "FANDANGOS QUEIJO",
-          "qtd": 6,
-          "receita": 47.94,
-          "custo": 23.94,
-          "lucro": 24,
-          "margem": 50
-        },
-        {
-          "nome": "BACONZITOS 35 G",
-          "qtd": 4,
-          "receita": 35.96,
-          "custo": 15.96,
-          "lucro": 20,
-          "margem": 56
         }
       ]
     },
@@ -4253,27 +4258,6 @@
           "custo": 38.97,
           "lucro": 30,
           "margem": 43
-        }
-      ]
-    },
-    {
-      "manufacturer_id": 3426963,
-      "nome": "OREO",
-      "receita": 67.96,
-      "custo": 31.96,
-      "lucro": 36,
-      "margem": 53,
-      "margem_parcial": null,
-      "pct_com_custo": 100,
-      "giro": 4,
-      "produtos": [
-        {
-          "nome": "OVOS MANT",
-          "qtd": 4,
-          "receita": 67.96,
-          "custo": 31.96,
-          "lucro": 36,
-          "margem": 53
         }
       ]
     },
@@ -4452,6 +4436,27 @@
       ]
     },
     {
+      "manufacturer_id": 3617707,
+      "nome": "KITCHENS",
+      "receita": 49.95,
+      "custo": 24.95,
+      "lucro": 25,
+      "margem": 50,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 5,
+      "produtos": [
+        {
+          "nome": "KITCHENS PAPEL TOALHA KITCHENS",
+          "qtd": 5,
+          "receita": 49.95,
+          "custo": 24.95,
+          "lucro": 25,
+          "margem": 50
+        }
+      ]
+    },
+    {
       "manufacturer_id": 4104430,
       "nome": "SPRITE",
       "receita": 38.43,
@@ -4490,27 +4495,6 @@
           "custo": 14,
           "lucro": 20.93,
           "margem": 60
-        }
-      ]
-    },
-    {
-      "manufacturer_id": 3617707,
-      "nome": "KITCHENS",
-      "receita": 29.97,
-      "custo": 14.97,
-      "lucro": 15,
-      "margem": 50,
-      "margem_parcial": null,
-      "pct_com_custo": 100,
-      "giro": 3,
-      "produtos": [
-        {
-          "nome": "KITCHENS PAPEL TOALHA KITCHENS",
-          "qtd": 3,
-          "receita": 29.97,
-          "custo": 14.97,
-          "lucro": 15,
-          "margem": 50
         }
       ]
     },
@@ -4833,6 +4817,35 @@
       ]
     },
     {
+      "manufacturer_id": 3301648,
+      "nome": "NUTRY",
+      "receita": 16.95,
+      "custo": 7.87,
+      "lucro": 9.08,
+      "margem": 54,
+      "margem_parcial": null,
+      "pct_com_custo": 100,
+      "giro": 5,
+      "produtos": [
+        {
+          "nome": "NUTRY BARRA DE CEREAL  AVELÃ COM CHOCOLATE-22G",
+          "qtd": 3,
+          "receita": 8.97,
+          "custo": 5.37,
+          "lucro": 3.6,
+          "margem": 40
+        },
+        {
+          "nome": "NUTRY BARRA DE CEREAL CASTANHA",
+          "qtd": 2,
+          "receita": 7.98,
+          "custo": 2.5,
+          "lucro": 5.48,
+          "margem": 69
+        }
+      ]
+    },
+    {
       "manufacturer_id": 3301730,
       "nome": "NUGGETS",
       "receita": 15.99,
@@ -4892,35 +4905,6 @@
           "custo": 9.18,
           "lucro": 4.8,
           "margem": 34
-        }
-      ]
-    },
-    {
-      "manufacturer_id": 3301648,
-      "nome": "NUTRY",
-      "receita": 13.96,
-      "custo": 6.08,
-      "lucro": 7.88,
-      "margem": 56,
-      "margem_parcial": null,
-      "pct_com_custo": 100,
-      "giro": 4,
-      "produtos": [
-        {
-          "nome": "NUTRY BARRA DE CEREAL CASTANHA",
-          "qtd": 2,
-          "receita": 7.98,
-          "custo": 2.5,
-          "lucro": 5.48,
-          "margem": 69
-        },
-        {
-          "nome": "NUTRY BARRA DE CEREAL  AVELÃ COM CHOCOLATE-22G",
-          "qtd": 2,
-          "receita": 5.98,
-          "custo": 3.58,
-          "lucro": 2.4,
-          "margem": 40
         }
       ]
     },
@@ -5350,12 +5334,12 @@
     },
     {
       "tipo": "info",
-      "titulo": "🏪 Mercadinho 1 representa 93% do faturamento",
-      "texto": "Soul Brooklin: R$ 16933.17 (1578 transações) · Minimart: R$ 1178.52 (140 transações)."
+      "titulo": "🏪 Mercadinho 1 representa 94% do faturamento",
+      "texto": "Soul Brooklin: R$ 17303.33 (1612 transações) · Minimart: R$ 1195.51 (141 transações)."
     },
     {
       "tipo": "info",
-      "titulo": "🌙 24% das vendas são noturnas (22h-4h)",
+      "titulo": "🌙 23% das vendas são noturnas (22h-4h)",
       "texto": "Perfil de condomínio com movimento noturno. Produtos de conveniência rápida têm alta demanda nesse período."
     }
   ],
@@ -5710,6 +5694,6 @@
   "total_buscado": 8000,
   "produtos_com_custo": 1285,
   "total_fabricantes_mapeados": 327,
-  "atualizado_em": "2026-11-10T17:00:51.324Z",
-  "atualizado_brt": "2026-11-10 14:00"
+  "atualizado_em": "2026-11-10T23:01:27.897Z",
+  "atualizado_brt": "2026-11-10 20:01"
 }
